@@ -1,0 +1,34 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#suurLogo {
+	text-align: center;
+}
+#veebilaulik {
+	font-size: 40px;
+}
+.embed-submit-field{
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+#otsimisVali {
+	width: 100%;
+	padding: 15px;
+	font-size: 20px;
+	border-radius: 20px;
+	border: 2px solid black;
+}
+#otsimisKinnitus {
+	position: absolute;
+	right: 15px;
+	top: 18px;
+	font-size: 15px;
+}
+#searchForm {
+	margin-top: 40px;
+	min-width: 400px;
+}
