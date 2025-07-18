@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Veebilaulik</title>
+<link rel="stylesheet" href="style.css">
+<script src="lib/chordsheetjs.js"></script>
+<script src="tools.js"></script>
+<meta charset="UTF-8">
+</head>
+<body id="body">
+
+<script>
+
+	fetch("chordsheets/" + findGetParameter("pealkiri") + ".txt")
+		.then(response => {
+			if (!response.ok){
+				throw new Error("Sõnade hankimine ebaõnnestus")
+			} else {
+				return response.text()
+			}
+		})
+		.then(text => {
+			showLyrics(text)
+		})
+
+
+	function showLyrics(text){
+		const parser = new ChordSheetJS.ChordsOverWordsParser();
+		var song = parser.parse(text);
+		console.log(song)
+
+		song = song.transpose(4);
+
+		const formatter = new ChordSheetJS.HtmlTableFormatter();
+		const disp = formatter.format(song);
+		document.getElementById('body').innerHTML += disp
+	}
+
+
+
+
+</script>
+
+</body>
+</html>

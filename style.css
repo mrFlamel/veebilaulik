@@ -1,7 +1,19 @@
+/* Värvide määramine */
+:root {
+	--bg-color: #F5F0CD;
+	--main-color: #3674B5;
+	--text-color: #FADA7A;
+}
+
+
+
+
 body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background: var(--bg-color);
+	height: 100%;
 }
 
 #suurLogo {
@@ -27,8 +39,16 @@ body {
 	right: 15px;
 	top: 18px;
 	font-size: 15px;
+	cursor: pointer;
+	background: var(--main-color);
+	color: var(--text-color);
 }
 #searchForm {
 	margin-top: 40px;
 	min-width: 400px;
+	user-select: none;
+}
+
+.chord-sheet{
+	white-space: pre;
 }
