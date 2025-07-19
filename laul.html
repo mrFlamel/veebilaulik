@@ -7,10 +7,68 @@
 <script src="tools.js"></script>
 <meta charset="UTF-8">
 </head>
-<body id="body">
+<body>
+
+
+<div class="header">
+  <a href="index.html" class="logo">Veebilaulik</a>
+  <form id="topbarSearch" action="search.html" method="get">
+  		<div class="embed-submit-field">
+  			<input id="otsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
+  			<button id="otsimisKinnitus" type="submit" value="Submit">Otsi</button>
+  		</div>
+  </form>
+</div>
+
+
+
+
+<div id="nupuDiv">
+	<button id="tagasiNupp" onclick="tagasi()">Tagasi</button>
+	<div>
+		<button id="prindiNupp">Prindi</button>
+		<button id="esitluseNupp">Loo esitlus</button>
+	</div>
+</div>
+
+
+
+
+
+<div id="lauluContainer">
+	<div>
+		<div id="lauluInfo">
+			<h1 id="lauluPealkiri">Suur Issand, Sa!</h1>
+			<i>
+				Autor: All Sons & Daughters<br>
+				Autoriõigused: All Sons & Daughters<br>
+				Tõlge: Jakob Luhamets	
+			</i>
+		</div>
+		<div id="lauluDiv"></div>
+	</div>
+
+	<div id="valikuDiv">
+		<select class="dropdown" id ="helistik" name="helistik" onchange="transposeSong(this.value);">
+  			<option value='1'>A-duur</option>
+  			<option value='2'>A#-duur</option>
+  			<option value='3'>B-duur</option>
+  			<option value='4'>C-duur</option>
+  			<option value='5'>C#-duur</option>
+  			<option value='6'>D-duur</option>
+  			<option value='7'>D#-duur</option>
+  			<option value='8'>E-duur</option>
+  			<option value='9'>F-duur</option>
+  			<option value='10'>F#-duur</option>
+		</select><br>
+		<select class="dropdown" id="keel" name="keel" onchange="muudaKeelt(this.value);">
+  			<option value='eesti'>Eesti keel</option>
+  			<option value='inglise'>Inglise keel</option>
+		</select>
+	</div>
+</div>
 
 <script>
-
 	fetch("chordsheets/" + findGetParameter("pealkiri") + ".txt")
 		.then(response => {
 			if (!response.ok){
@@ -23,23 +81,53 @@
 			showLyrics(text)
 		})
 
-
+	var song;
 	function showLyrics(text){
 		const parser = new ChordSheetJS.ChordsOverWordsParser();
-		var song = parser.parse(text);
-		console.log(song)
-
-		song = song.transpose(4);
-
+		song = parser.parse(text);
 		const formatter = new ChordSheetJS.HtmlTableFormatter();
 		const disp = formatter.format(song);
-		document.getElementById('body').innerHTML += disp
+		document.getElementById('lauluDiv').innerHTML = disp;
+	}
+
+	document.getElementById("helistik").value = '1';
+	var praeguneHelistik = '1';
+	function transposeSong(sihtHelistik){
+		const amount = sihtHelistik - praeguneHelistik;
+		song = song.transpose(amount);
+		song = song.useModifier("#"); //TODO: # ja b vahetamine
+		const formatter = new ChordSheetJS.HtmlTableFormatter();
+		const disp = formatter.format(song);
+		document.getElementById('lauluDiv').innerHTML = disp;
+		praeguneHelistik = sihtHelistik;
 	}
 
 
-
-
+	function tagasi(){
+		if (document.referrer.includes("search.html")){
+			history.back()
+		} else {
+			window.open("index.html","_self")
+		}
+	}
+	function muudaKeelt(keel){
+		alert("Pole veel saadaval!")
+	}
 </script>
+
+
+
+
+<div class="footer">
+  <a href="meist.html" class="footerLink">Meist</a>
+  <a href="toeta.html" class="footerLink">Toeta</a>
+  <a href="kontakt.html" class="footerLink">Kontakt</a>
+  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+  <a href="panusta.html" class="footerLink">Panusta</a>
+  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+</div>
+
+
 
 </body>
 </html>

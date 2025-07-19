@@ -1,21 +1,25 @@
 /* Värvide määramine */
 :root {
 	--bg-color: #F5F0CD;
+	--lighter-bg-color: #fbf9ea;
 	--main-color: #3674B5;
 	--text-color: #FADA7A;
 }
 
 
 
-
+/* Igal pool olev "body" */
 body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background: var(--bg-color);
 	height: 100%;
+	margin: 0px;
 }
 
+
+/* Avaleht */
 #suurLogo {
 	text-align: center;
 }
@@ -49,6 +53,133 @@ body {
 	user-select: none;
 }
 
-.chord-sheet{
-	white-space: pre;
+
+/* Laulu leht */
+
+
+/*HEADER*/
+/* Style the header with a grey background and some padding */
+.header {
+	width: 100%;
+	overflow: hidden;
+	background-color: var(--main-color);
+	padding-bottom: 20px;
+	padding-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  border: 1px dashed var(--text-color);
+}
+
+
+
+#nupuDiv {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+#tagasiNupp{
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
+	cursor: pointer;
+	color: var(--main-color);
+	font-size: 20px;
+}
+#prindiNupp{
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
+	cursor: pointer;
+	color: var(--main-color);
+	font-size: 20px;
+}
+#esitluseNupp{
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
+	cursor: pointer;
+	color: var(--main-color);
+	font-size: 20px;
+}
+
+
+
+
+
+#lauluDiv {
+	font-size: 20px;
+}
+#lauluContainer {
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #CCCCCC; 
+	padding: 50px;
+	padding-top: 10px;
+	background-color: var(--lighter-bg-color);
+}
+#lauluPealkiri{
+	margin-bottom: 10px;
+}
+#lauluInfo {
+	margin-bottom: 28px;
+	margin-top: 20px;
+}
+#valikuDiv{
+	display: flex;
+	flex-direction: column;
+	margin-left: 40px;
+	margin-top: 20px;
+}
+.dropdown{
+	font-size: 15px;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+
+
+/*FOOTER*/
+.footer {
+	width: 100%;
+	background-color: var(--main-color);
+	margin-top: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.footerLink {
+	width: calc(100%/3);
+	flex-grow: 0;
+	text-align: center;
+	color: var(--text-color);
+	font-size: 20px;
+	text-decoration: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }

@@ -10,3 +10,6 @@ function findGetParameter(parameterName) {
         });
     return result;
 }
+
+function insertAfter(newNode, referenceNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling); }
