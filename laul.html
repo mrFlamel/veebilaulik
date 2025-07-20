@@ -14,8 +14,8 @@
   <a href="index.html" class="logo">Veebilaulik</a>
   <form id="topbarSearch" action="search.html" method="get">
   		<div class="embed-submit-field">
-  			<input id="otsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
-  			<button id="otsimisKinnitus" type="submit" value="Submit">Otsi</button>
+  			<input id="topbarOtsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
+  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
   		</div>
   </form>
 </div>
@@ -24,10 +24,10 @@
 
 
 <div id="nupuDiv">
-	<button id="tagasiNupp" onclick="tagasi()">Tagasi</button>
+	<button id="tagasiNupp" class="suurNupp" onclick="tagasi()">Tagasi</button>
 	<div>
-		<button id="prindiNupp">Prindi</button>
-		<button id="esitluseNupp">Loo esitlus</button>
+		<button id="prindiNupp" class="suurNupp">Prindi</button>
+		<button id="esitluseNupp" class="suurNupp">Loo esitlus</button>
 	</div>
 </div>
 
@@ -49,7 +49,7 @@
 	</div>
 
 	<div id="valikuDiv">
-		<select class="dropdown" id ="helistik" name="helistik" onchange="transposeSong(this.value);">
+		<select class="dropdown" id ="helistik" name="helistik" onclick="kontrolliMuutust(this.value)" onchange="transposeSong(this.value);">
   			<option value='1'>A-duur</option>
   			<option value='2'>A#-duur</option>
   			<option value='3'>B-duur</option>
@@ -92,14 +92,31 @@
 
 	document.getElementById("helistik").value = '1';
 	var praeguneHelistik = '1';
+	var votmemargid = "#";
 	function transposeSong(sihtHelistik){
 		const amount = sihtHelistik - praeguneHelistik;
 		song = song.transpose(amount);
-		song = song.useModifier("#"); //TODO: # ja b vahetamine
+
+		if (amount == 0){
+			if (votmemargid == "#"){
+				song = song.useModifier("b");
+				votmemargid = "b";
+			} else {
+				song = song.useModifier("#")
+				votmemargid = "#";
+			}
+		}
+
 		const formatter = new ChordSheetJS.HtmlTableFormatter();
 		const disp = formatter.format(song);
 		document.getElementById('lauluDiv').innerHTML = disp;
 		praeguneHelistik = sihtHelistik;
+	}
+
+	function kontrolliMuutust(helistik){ //Veel katki
+		if (helistik == praeguneHelistik){
+			transposeSong(helistik);
+		}
 	}
 
 
