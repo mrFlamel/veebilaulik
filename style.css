@@ -1,26 +1,8 @@
 /* Värvide määramine */
 :root {
-	--bg-color: #F5F0CD;
-	--lighter-bg-color: #fbf9ea;
-	--main-color: #3674B5;
-	--darker-main-color: #234b76;
-	--text-color: #FADA7A;
-}
-
-/* Värvide määramine */
-:root {
 	--bg-color: #FEFAE0;
 	--lighter-bg-color: #fbf9ea;
 	--main-color: #0A400C;
-	--darker-main-color: #234b76;
-	--text-color: #FADA7A;
-}
-
-/* Värvide määramine */
-:root {
-	--bg-color: #F6F8D5;
-	--lighter-bg-color: #fbf9ea;
-	--main-color: #205781;
 	--darker-main-color: #234b76;
 	--text-color: #FADA7A;
 }

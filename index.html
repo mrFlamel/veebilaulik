@@ -3,6 +3,8 @@
 <head>
 <title>Veebilaulik</title>
 <link rel="stylesheet" href="style.css">
+<script src="lib/papaparse.min.js"></script>
+<script src="tools.js"></script>
 <meta charset="UTF-8">
 </head>
 <body>
@@ -58,6 +60,19 @@
 		
 	</div>
 </div>
+
+
+<script>
+	getSongIndex().then(songIndex => {
+		for (let i = 0; i < document.getElementsByClassName("soovitus").length; i++) {
+			const randomSong = Object.keys(songIndex)[randomInt(0,Object.keys(songIndex).length-1)]
+        document.getElementsByClassName("soovitus")[i].children[0].innerText = songIndex[randomSong].pealkiri;
+				document.getElementsByClassName("soovitus")[i].children[1].innerText = songIndex[randomSong].viisi_autor;
+
+    }
+	})
+	
+</script>
 
 
 <!-- EMPTY SPACE FILLER -->
