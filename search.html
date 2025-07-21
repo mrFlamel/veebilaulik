@@ -1,9 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+<title>Veebilaulik</title>
+<link rel="stylesheet" href="style.css">
+<script src="tools.js"></script>
+<meta charset="UTF-8">
 </head>
 <body>
-	<a href="laul.html?pealkiri=test">Link</a>
+
+
+<div class="header">
+  <a href="index.html" class="logo">Veebilaulik</a>
+  <form id="topbarSearch" action="search.html" method="get">
+  		<div class="embed-submit-field">
+  			<input id="topbarOtsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
+  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
+  		</div>
+  </form>
+</div>
+
+
+<div id="otsinguContainer">
+	<h1 style="text-align: left;">Otsingu tulemus:</h1>
+
+	<div class="otsinguNupud">
+		<button class="otsinguNupp" onclick='prevNr()'><</button>
+		<input  class="otsinguNupp" id="otsinguLahter" type="text" value="2" onkeypress="muudaNumbrit(this.value)" onchange="vahetaLk(this.value)"></input>
+		<a class="otsinguNupp">/24</a>
+		<button class="otsinguNupp" onclick='nextNr()'>></button>
+		<button class="otsinguNupp">>></button>
+	</div>
+
+	<div id="otsinguTulemus">
+		<div class="otsinguPakkumine">
+			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+		</div>
+		<div class="otsinguPakkumine">
+			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+		</div>
+		<div class="otsinguPakkumine">
+			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+		</div>
+		<div class="otsinguPakkumine">
+			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+		</div>
+		<div class="otsinguPakkumine">
+			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+		</div>
+	</div>
+
+
+	<div class="otsinguNupud">
+		<button><</button>
+		<input type="text" value="2"></input>
+		<a>/24</a>
+		<button>></button>
+		<button>>></button>
+	</div>
+
+</div>
+
+
+
+<div class="footer">
+  <a href="meist.html" class="footerLink">Meist</a>
+  <a href="toeta.html" class="footerLink">Toeta</a>
+  <a href="kontakt.html" class="footerLink">Kontakt</a>
+  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+  <a href="panusta.html" class="footerLink">Panusta</a>
+  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+</div>
+
+
+<script>
+document.getElementById("otsinguLahter").value = findGetParameter("lk")
+function muudaNumbrit(value){
+	if (value.length > 1){
+		document.getElementById("otsinguLahter").value = value.slice(0,1);
+	}
+}
+function vahetaLk(value){
+	if (value < 1 || isNaN(value)){
+		document.getElementById("otsinguLahter").value = "1";
+		return
+	}
+	var newAdditionalURL = "";
+    var tempArray = window.location.href.split("?");
+    var baseURL = tempArray[0];
+    var additionalURL = tempArray[1];
+    var temp = "";
+    if (additionalURL) {
+        tempArray = additionalURL.split("&");
+        for (var i=0; i<tempArray.length; i++){
+            if(tempArray[i].split('=')[0] != "lk"){
+                newAdditionalURL += temp + tempArray[i];
+                temp = "&";
+            }
+        }
+    }
+    var rows_txt = temp + "" + "lk" + "=" + value;
+    const url = baseURL + "?" + newAdditionalURL + rows_txt;
+    window.open(url, "_self")
+}
+function nextNr(){
+	vahetaLk(parseInt(document.getElementById("otsinguLahter").value)+1);
+}
+function prevNr(){
+	vahetaLk(parseInt(document.getElementById("otsinguLahter").value)-1);
+}
+</script>
+
+
+
+
 </body>
 </html>
