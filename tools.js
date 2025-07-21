@@ -13,3 +13,13 @@ function findGetParameter(parameterName) {
 
 function insertAfter(newNode, referenceNode) {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling); }
+
+
+
+
+function changeValueByClassName(className, property, newValue){
+    const elements = document.getElementsByClassName(className)
+    for (let i = 0; i < elements.length; i++) {
+        elements[i][property] = newValue;
+    }
+}

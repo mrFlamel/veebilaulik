@@ -25,41 +25,40 @@
 
 	<div class="otsinguNupud">
 		<button class="otsinguNupp" onclick='prevNr()'><</button>
-		<input  class="otsinguNupp" id="otsinguLahter" type="text" value="2" onkeypress="muudaNumbrit(this.value)" onchange="vahetaLk(this.value)"></input>
-		<a class="otsinguNupp">/24</a>
+		<input  class="otsinguNupp otsinguLahter" style="cursor:text" type="text" value="2" onkeypress="muudaNumbrit(this.value)" onchange="vahetaLk(this.value)"></input>
+		<a class="otsinguNupp" style="cursor: text;">/24</a>
 		<button class="otsinguNupp" onclick='nextNr()'>></button>
 		<button class="otsinguNupp">>></button>
 	</div>
 
 	<div id="otsinguTulemus">
 		<div class="otsinguPakkumine">
-			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+			<h2 class="otsitavaPealkiri">Kiida / Praise - Hillsong</h2><a class="otsitavaId">#0123</a>
 		</div>
 		<div class="otsinguPakkumine">
-			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+			<h2 class="otsitavaPealkiri">Kiida / Praise - Hillsong</h2><a class="otsitavaId">#0123</a>
 		</div>
 		<div class="otsinguPakkumine">
-			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+			<h2 class="otsitavaPealkiri">Kiida / Praise - Hillsong</h2><a class="otsitavaId">#0123</a>
 		</div>
 		<div class="otsinguPakkumine">
-			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+			<h2 class="otsitavaPealkiri">Kiida / Praise - Hillsong</h2><a class="otsitavaId">#0123</a>
 		</div>
 		<div class="otsinguPakkumine">
-			<h2>Kiida / Praise - Hillsong</h2><a>#0123</a>
+			<h2 class="otsitavaPealkiri">Kiida / Praise - Hillsong</h2><a class="otsitavaId">#0123</a>
 		</div>
 	</div>
 
 
 	<div class="otsinguNupud">
-		<button><</button>
-		<input type="text" value="2"></input>
-		<a>/24</a>
-		<button>></button>
-		<button>>></button>
+		<button class="otsinguNupp" onclick='prevNr()'><</button>
+		<input  class="otsinguNupp otsinguLahter" type="text" value="2" onkeypress="muudaNumbrit(this.value)" onchange="vahetaLk(this.value)"></input>
+		<a class="otsinguNupp">/24</a>
+		<button class="otsinguNupp" onclick='nextNr()'>></button>
+		<button class="otsinguNupp">>></button>
 	</div>
 
 </div>
-
 
 
 <div class="footer">
@@ -73,15 +72,24 @@
 
 
 <script>
-document.getElementById("otsinguLahter").value = findGetParameter("lk")
+if (!findGetParameter("lk")){
+	changeValueByClassName("otsinguLahter", "value", "1")
+} else {
+	changeValueByClassName("otsinguLahter", "value", findGetParameter("lk"))
+}
+
 function muudaNumbrit(value){
 	if (value.length > 1){
-		document.getElementById("otsinguLahter").value = value.slice(0,1);
+		changeValueByClassName("otsinguLahter", "value", value.slice(0,1))
 	}
 }
 function vahetaLk(value){
 	if (value < 1 || isNaN(value)){
-		document.getElementById("otsinguLahter").value = "1";
+		if (!findGetParameter("lk")){
+			changeValueByClassName("otsinguLahter", "value", "1")
+		} else {
+			changeValueByClassName("otsinguLahter", "value", findGetParameter("lk"))
+		}
 		return
 	}
 	var newAdditionalURL = "";
@@ -103,10 +111,10 @@ function vahetaLk(value){
     window.open(url, "_self")
 }
 function nextNr(){
-	vahetaLk(parseInt(document.getElementById("otsinguLahter").value)+1);
+	vahetaLk(parseInt(document.getElementsByClassName("otsinguLahter")[0].value)+1);
 }
 function prevNr(){
-	vahetaLk(parseInt(document.getElementById("otsinguLahter").value)-1);
+	vahetaLk(parseInt(document.getElementsByClassName("otsinguLahter")[0].value)-1);
 }
 </script>
 
