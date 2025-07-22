@@ -30,7 +30,7 @@ async function getSongIndex(){
 
         const text = await response.text();
         const data = Papa.parse(text);
-        const songIndex = {};
+        const songIndex = [];
 
         for (let i = 1; i < data.data.length; i++) {
             if (data.data[i].length === 1) {
@@ -38,16 +38,19 @@ async function getSongIndex(){
                 continue;
             }
 
-            const key = data.data[i][8];
-            songIndex[key] = {};
-
+            var laul = {};
             for (let j = 0; j < data.data[0].length; j++) {
-                songIndex[key][data.data[0][j]] = data.data[i][j];
+                laul[data.data[0][j]] = data.data[i][j]
             }
+            songIndex.push(laul);
         }
         return songIndex;
 }
 
 function randomInt(min, max) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function findNextMultiplier(start, search){
+    return Math.ceil(start / search) * search;
 }
