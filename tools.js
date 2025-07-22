@@ -122,3 +122,12 @@ function reverseParts(str) {
   }
   return `${parts[1]}/${parts[0]}`;
 }
+
+
+function replaceSpacesWithNbsp(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    node.textContent = node.textContent.replace(/ /g, '\u00A0');
+  } else {
+    node.childNodes.forEach(child => replaceSpacesWithNbsp(child));
+  }
+}

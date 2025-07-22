@@ -1,32 +1,29 @@
+[Salm]
      A          C#m
 Oled elu, armastus,
-         B
+       B         
 valgus pimeduses.
        A         C#m
 Lootus Sa, taastaja,
-       B             A
+    B           A
 iga katkise süda.
-C#m          B
+ C#m         B  
 Suur Issand, Sa!
 
-
+[Refrään]
      A           C#m
 Sinu Vaim on me sees
-        B
-ning me kiidame Sind, 
-
-me kiidame Sind.
-     A          C#m
+        B                             
+ning me kiidame Sind, me kiidame Sind.
+     A          C#m 
 Sinu Vaim on me sees
-        B
-ning me kiidame Sind,
+        B                       
+ning me kiidame Sind, Üksainust.
 
-Üksainust.
-
-
-E
+[Sild]
+     E                      
 Näe, kõikjalt tõuseb ülistus
-     B
+     B                         
 ning iga haud vaid hõiskab Sul.
-  A           B
+   A         B  
 Suur Issand, Sa!

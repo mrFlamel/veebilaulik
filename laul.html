@@ -114,6 +114,7 @@
 		const formatter = new ChordSheetJS.HtmlTableFormatter();
 		const disp = formatter.format(song);
 		document.getElementById('lauluDiv').innerHTML = disp;
+		replaceSpacesWithNbsp(document.getElementById('lauluDiv'))
 	}
 
 

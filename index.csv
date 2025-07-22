@@ -1,23 +1,2 @@
-id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,seade_autor,tolke_autor,autorioigused,fail,formaat,helistik,votmemargid
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa,a,E-duur,#
-0001,"Suur Issand, Sa!1",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa1,a,1,#
-0001,"Suur Issand, Sa!2",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa2,a,1,#
-0001,"Suur Issand, Sa!3",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa3,a,1,#
-0001,"Suur Issand, Sa!4",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa4,a,1,#
-0001,"Suur Issand, Sa!5",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa5,a,1,#
-0001,"Suur Issand, Sa!6",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa6,a,1,#
-0001,"Suur Issand, Sa!7",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa7,a,1,#
-0001,"Suur Issand, Sa!8",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa8,a,1,#
-0001,"Suur Issand, Sa!9",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa9,a,1,#
-0001,"Suur Issand, Sa!10",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa10,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa11,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa12,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa13,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa14,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa15,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa16,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa17,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa18,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa19,a,1,#
-0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa20,a,1,#
-
+id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,seade_autor,tolke_autor,autorioigused,fail,formaat,helistik,teemad
+0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa,a,E-duur,Tänu ja ülistus
