@@ -301,6 +301,9 @@ body {
 	font-size: 20px;
   padding-right: 20px;
 }
+.otsitavaPealkiri{
+	font-weight: normal;
+}
 @keyframes changeFont {
 	from {font-size: 24px}
 	to {font-size: 28px}
