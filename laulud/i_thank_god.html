@@ -12,7 +12,7 @@
 <body>
 
 
-<div class="header">
+<div class="header noPrint">
   <a href="/index.html" class="logo">Veebilaulik</a>
   <form id="topbarSearch" action="/search.html" method="get">
   		<div class="embed-submit-field">
@@ -25,11 +25,11 @@
 
 
 
-<div id="nupuDiv">
-	<button id="tagasiNupp" class="suurNupp" onclick="tagasi()">Tagasi</button>
+<div id="nupuDiv" class="noPrint">
+	<button id="tagasiNupp" class="suurNupp noPrint" onclick="tagasi()">Tagasi</button>
 	<div>
-		<button id="prindiNupp" class="suurNupp">Prindi</button>
-		<button id="esitluseNupp" class="suurNupp">Loo esitlus</button>
+		<button id="prindiNupp" class="suurNupp noPrint" onclick="prindi()">Prindi</button>
+		<button id="esitluseNupp" class="suurNupp noPrint">Loo esitlus</button>
 	</div>
 </div>
 
@@ -38,7 +38,7 @@
 
 
 <div id="lauluContainer">
-	<div>
+	<div id="printimisContainer">
 		<div id="lauluInfo">
 			<!--<h1 id="lauluPealkiri">Suur Issand, Sa!</h1>
 			<h2 id="originaalPealkiri">Great are you Lord #0001</h2>
@@ -51,8 +51,8 @@
 		<div id="lauluDiv">Laen laulu...</div>
 	</div>
 
-	<div id="valikuDiv">
-		<select class="dropdown" id ="helistik" name="helistik" onmousedown="salvestaHetk(this.value)" onclick="kontrolliMuutust(this.value)" onchange="transposeSong(this.value);">
+	<div id="valikuDiv" class="noPrint">
+		<select class="dropdown noPrint" id ="helistik" name="helistik" onmousedown="salvestaHetk(this.value)" onclick="kontrolliMuutust(this.value)" onchange="transposeSong(this.value);">
   			<!--<option value='1'>A-duur</option>
   			<option value='2'>A#-duur</option>
   			<option value='3'>B-duur</option>
@@ -64,7 +64,7 @@
   			<option value='9'>F-duur</option>
   			<option value='10'>F#-duur</option>-->
 		</select><br>
-		<select class="dropdown" id="keel" name="keel" onchange="muudaKeelt(this.value);">
+		<select class="dropdown noPrint" id="keel" name="keel" onchange="muudaKeelt(this.value);">
   			<option value='eesti'>Eesti keel</option>
   			<option value='inglise'>Inglise keel</option>
 		</select>
@@ -240,18 +240,26 @@
 	function muudaKeelt(keel){
 		alert("Pole veel saadaval!")
 	}
+
+function prindi(){
+	 window.print();
+}
+
+
+
+
 </script>
 
 
 
 
-<div class="footer">
-  <a href="/meist.html" class="footerLink">Meist</a>
-  <a href="/toeta.html" class="footerLink">Toeta</a>
-  <a href="/kontakt.html" class="footerLink">Kontakt</a>
-  <a href="/teemad.html" class="footerLink">Temaatiline jaotus</a>
-  <a href="/panusta.html" class="footerLink">Panusta</a>
-  <a href="/tingimused.html" class="footerLink">Kasutustingimused</a>
+<div class="footer noPrint">
+  <a href="/meist.html" class="footerLink noPrint">Meist</a>
+  <a href="/toeta.html" class="footerLink noPrint">Toeta</a>
+  <a href="/kontakt.html" class="footerLink noPrint">Kontakt</a>
+  <a href="/teemad.html" class="footerLink noPrint">Temaatiline jaotus</a>
+  <a href="/panusta.html" class="footerLink noPrint">Panusta</a>
+  <a href="/tingimused.html" class="footerLink noPrint">Kasutustingimused</a>
 </div>
 
 

@@ -223,6 +223,20 @@ body {
 	padding: 5px;
 	border-radius: 10px;
 }
+@media print {
+	.noPrint{
+		display: none !important;
+	}
+	#lauluContainer{
+		border: none !important;
+		width: 100%;
+		margin-left: 120px;
+	}
+	.row{
+		page-break-inside: avoid;
+	}
+}
+
 
 
 
