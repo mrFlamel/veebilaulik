@@ -22,8 +22,8 @@ function changeValueByClassName(className, property, newValue){
 }
 
 async function getSongIndex(){
-    fetch("index.csv")
-        const response = await fetch("index.csv");
+    fetch("/index.csv")
+        const response = await fetch("/index.csv");
         if (!response.ok) {
             throw new Error("Sõnade nimekirja hankimine ebaõnnestus");
         }

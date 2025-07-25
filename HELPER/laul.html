@@ -2,18 +2,19 @@
 <html>
 <head>
 <title>Veebilaulik</title>
-<link rel="stylesheet" href="style.css">
-<script src="lib/chordsheetjs.min.js"></script>
-<script src="lib/papaparse.min.js"></script>
-<script src="tools.js"></script>
+<link rel="stylesheet" href="/style.css">
+<script>const lauluNimi = location.href.split("/").slice(-1)[0].replace(".html", "");</script>
+<script src="/lib/chordsheetjs.min.js"></script>
+<script src="/lib/papaparse.min.js"></script>
+<script src="/tools.js"></script>
 <meta charset="UTF-8">
 </head>
 <body>
 
 
 <div class="header">
-  <a href="index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" action="search.html" method="get">
+  <a href="/index.html" class="logo">Veebilaulik</a>
+  <form id="topbarSearch" action="/search.html" method="get">
   		<div class="embed-submit-field">
   			<input id="topbarOtsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
   			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
@@ -73,7 +74,7 @@
 <script>
 	getSongIndex().then(songIndex => {
 		for (let i = 0; i < songIndex.length; i++) {
-			if(songIndex[i].fail == findGetParameter("pealkiri")){
+			if(songIndex[i].fail == lauluNimi){
 				looLauluInfo("", songIndex[i].pealkiri, "h1", "lauluPealkiri")
 				looLauluInfo("", songIndex[i].orgpealkiri, "h2", "originaalPealkiri")
 
@@ -95,10 +96,11 @@
 	})
 
 
-	fetch("chordsheets/" + findGetParameter("pealkiri") + ".txt")
+	fetch("/chordsheets/" + lauluNimi + ".txt")
 		.then(response => {
 			if (!response.ok){
-				throw new Error("Sõnade hankimine ebaõnnestus")
+				document.getElementById("lauluDiv").innerText = "Laulu avamine ebaõnnestus."
+				throw new Error("Laulu avamine ebaõnnestus.")
 			} else {
 				return response.text()
 			}
@@ -140,6 +142,7 @@
 		const formatter = new ChordSheetJS.HtmlTableFormatter();
 		const disp = formatter.format(song);
 		document.getElementById('lauluDiv').innerHTML = disp;
+		replaceSpacesWithNbsp(document.getElementById('lauluDiv'))
 		praeguneHelistik = sihtHelistik;
 	}
 
@@ -184,10 +187,14 @@
     }
 
     var uuesti = false;
+    var algusUuesti = false;
     var algus = asukoht - 5;
     if (algus < 0){
     	algus += 12;
     	uuesti = true;
+    }
+    if (algus > 0){
+    	algusUuesti = true;
     }
 
     
@@ -197,6 +204,12 @@
     }
     if (uuesti){
     	for (let i=0; i<sihtArray.length-(12-algus); i++){
+    		newOrder.push(sihtArray[i])
+    		enharmoonilised_helistikud = kontrEnharmooniat(i, helistik, enharmoonilised_helistikud, newOrder);
+    	}
+    }
+    if (algusUuesti){
+    	for (let i=0; i<algus; i++){
     		newOrder.push(sihtArray[i])
     		enharmoonilised_helistikud = kontrEnharmooniat(i, helistik, enharmoonilised_helistikud, newOrder);
     	}
@@ -221,7 +234,7 @@
 		if (document.referrer.includes("search.html")){
 			history.back()
 		} else {
-			window.open("index.html","_self")
+			window.open("/index.html","_self")
 		}
 	}
 	function muudaKeelt(keel){
@@ -233,12 +246,12 @@
 
 
 <div class="footer">
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="toeta.html" class="footerLink">Toeta</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
-  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
-  <a href="panusta.html" class="footerLink">Panusta</a>
-  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  <a href="/meist.html" class="footerLink">Meist</a>
+  <a href="/toeta.html" class="footerLink">Toeta</a>
+  <a href="/kontakt.html" class="footerLink">Kontakt</a>
+  <a href="/teemad.html" class="footerLink">Temaatiline jaotus</a>
+  <a href="/panusta.html" class="footerLink">Panusta</a>
+  <a href="/tingimused.html" class="footerLink">Kasutustingimused</a>
 </div>
 
 
