@@ -29,7 +29,7 @@
 	<button id="tagasiNupp" class="suurNupp noPrint" onclick="tagasi()">Tagasi</button>
 	<div>
 		<button id="prindiNupp" class="suurNupp noPrint" onclick="prindi()">Prindi</button>
-		<button id="esitluseNupp" class="suurNupp noPrint">Loo esitlus</button>
+		<button id="esitluseNupp" class="suurNupp noPrint" onclick="esitlus()">Loo esitlus</button>
 	</div>
 </div>
 
@@ -65,8 +65,8 @@
   			<option value='10'>F#-duur</option>-->
 		</select><br>
 		<select class="dropdown noPrint" id="keel" name="keel" onchange="muudaKeelt(this.value);">
-  			<option value='eesti'>Eesti keel</option>
-  			<option value='inglise'>Inglise keel</option>
+  			<!--<option value='eesti'>Eesti keel</option>
+  			<option value='inglise'>Inglise keel</option>-->
 		</select>
 	</div>
 </div>
@@ -90,13 +90,24 @@
 
 				helistikud(songIndex[i]);
 
+				keeled(songIndex[i].keeled);
+				keel = document.getElementById('keel').value;
+
+				if (keel != "et"){
+					hangiSonad(lauluNimi + "_" + keel)
+				} else {
+					hangiSonad(lauluNimi)
+				}
+
+
 				break
 			}
     }
 	})
 
 
-	fetch("/chordsheets/" + lauluNimi + ".txt")
+	function hangiSonad(lauluNimiInner){
+		fetch("/akordifailid/" + lauluNimiInner + ".txt")
 		.then(response => {
 			if (!response.ok){
 				document.getElementById("lauluDiv").innerText = "Laulu avamine ebaõnnestus."
@@ -108,6 +119,8 @@
 		.then(text => {
 			showLyrics(text)
 		})
+	}
+	
 
 	var song;
 	function showLyrics(text){
@@ -230,6 +243,26 @@
 	}
 
 
+	function keeled(languages){
+		if (languages == ""){
+			languages = "et";
+		}
+		const splitted = languages.split("/");
+		for (i in splitted){
+			var valik = document.createElement("option");
+    	valik.value = splitted[i]
+    	let shouldContinue = false;
+    	valik.innerText = (function(){switch(splitted[i]){
+										    	case "et": return "Eesti keel";
+										    	case "en": return "Inglise keel";
+										    	default: shouldContinue=true;break;
+										    }})();
+			if (shouldContinue){console.error("Tundmatu keel vahele jäetud...");continue}
+			document.getElementById("keel").appendChild(valik);
+		}
+	}
+
+
 	function tagasi(){
 		if (document.referrer.includes("search.html")){
 			history.back()
@@ -237,12 +270,20 @@
 			window.open("/index.html","_self")
 		}
 	}
+	var keel = "";
 	function muudaKeelt(keel){
-		alert("Pole veel saadaval!")
+		if (keel != "et"){
+			hangiSonad(lauluNimi + "_" + keel)
+		} else {
+			hangiSonad(lauluNimi)
+		}
 	}
 
 function prindi(){
 	 window.print();
+}
+function esitlus(){
+	window.open("/esitlus.html?laul=" + lauluNimi + "&lang=" + keel,"_self")
 }
 
 
