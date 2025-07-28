@@ -1,4 +1,5 @@
 id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,seade_autor,tolke_autor,autorioigused,fail,formaat,helistik,teemad,keeled
 0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,,Jakob Luhamets,All Sons & Daughters,suur_issand_sa,a,E-duur,Tänu ja ülistus,et/en
-0002,Tänan Sind,I thank God,Maverick City Music,,,Jakob Luhamets,Maverick City Music,i_thank_god,a,G-duur,Tänu ja ülistus/Surmast ellu,et
-0003,"Jeesus, Jeesus",,Joonas Alvre,,,,Joonas Alvre,"jeesus, jeesus",a,A-duur,Jeesus Kristus: Nimi üle kõige/Tänu ja ülistus,et
+0002,Tänan Sind,I thank God,Maverick City Music,,,Jakob Luhamets,Maverick City Music,i_thank_god,a,C#-duur/Db-duur,Tänu ja ülistus/Surmast ellu,et
+0003,"Jeesus, Jeesus",,Joonas Alvre,,,,Joonas Alvre,jeesus-jeesus,a,A-duur,Jeesus Kristus: Nimi üle kõige/Tänu ja ülistus,et
+0004,Palju põhjust laulmiseks,,Raili Lilleorg,,,,Raili Lilleorg,palju-pohjust-laulmiseks,a,G-duur,Tänu ja ülistus,et

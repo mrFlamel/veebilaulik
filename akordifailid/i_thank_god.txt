@@ -1,83 +1,83 @@
 [Salm 1]
-G
+C#
 Ekseldes pimedas
-G
+C#
 otsides paika siin
-            C
+            F#
 Üks väsind' hing
-             G
+             C#
 Üks langend' vaim
-G
+C#
 Ja võidelnud vaprasti
-G
+C#
 kuid võit kaob mul silme eest
-              C
+              F#
 Maa liigub mu all
-          G
+          C#
 Üks vaene hing
 
 [Eelrefrään]
-   D              Em
+   G#              A#m
 Ja siis kui ma ei leidnud teed
-   C              G
+   F#              C#
 Mul vastu vaatas võõras mees
-D                Em           C
+G#                A#m           F#
 et ma pole üksi, vastas mulle ta.
 
 [Refrään]
-G               Am
+C#               D#m
 Mind tõstis ta, mul vastas ta,
-G               C
+C#               F#
 Mu jalgu kandis võõras maa
-            Em                  C
+            A#m                  F#
 Kiitku kõik Loojat, laulgu kõik Päästjal!
-          G                Am
+          C#                D#m
 sest süda terve on mul, uus nimi mul
-     G            C
+     C#            F#
 nüüd tema laps ma igavest'
-            Em                  C
+            A#m                  F#
 Kiitku kõik Loojat, laulgu kõik Päästjal - 
-        G
+        C#
 Issandal!
 
 [Salm 2]
-G
+C#
 Nähtut ei peita saa
-G
+C#
 Pean lihtsalt uskuma
-C
+F#
 Mu kahtlused
-               G
+               C#
 on tuhk tuules sees.
-G
+C#
 Hüvasti vana ilm
-G
+C#
 koorem ja valu veel
-              C
+              F#
 Võid lihtsalt minna
-                   G
+                   C#
 Ei, sa pole enam teretulnud
 
 [Eelrefrään]
-D                  Em
+G#                  A#m
 Nüüd kui ma kõnnin kuldsel teel
-   C           G
+   F#           C#
 Ma laulan enda päästmisest
-    D               Em           C
-See eksind' poeg on leidnud kodutee
+    G#               A#m           F#
+See eksind' poeC# on leidnud kodutee
 
 [Refrään]
-G               Am
+C#               D#m
 Mind tõstis ta, mul vastas ta,
-G               C
+C#               F#
 Mu jalgu kandis võõras maa
-            Em                  C
+            A#m                  F#
 Kiitku kõik Loojat, laulgu kõik Päästjal!
-          G                Am
+          C#                D#m
 sest süda terve on mul, uus nimi mul
-     G            C
+     C#            F#
 nüüd tema laps ma igavest'
-            Em                  C
+            A#m                  D#m
 Kiitku kõik Loojat, laulgu kõik Päästjal - 
-        G
+        C#
 Issandal!
