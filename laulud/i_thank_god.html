@@ -75,6 +75,8 @@
 	getSongIndex().then(songIndex => {
 		for (let i = 0; i < songIndex.length; i++) {
 			if(songIndex[i].fail == lauluNimi){
+				document.title = songIndex[i].pealkiri + " - Veebilaulik"
+
 				looLauluInfo("", songIndex[i].pealkiri, "h1", "lauluPealkiri")
 				looLauluInfo("", songIndex[i].orgpealkiri, "h2", "originaalPealkiri")
 
@@ -202,12 +204,12 @@
     var uuesti = false;
     var algusUuesti = false;
     var algus = asukoht - 5;
+    if (algus > 0){
+    	algusUuesti = true;
+    }
     if (algus < 0){
     	algus += 12;
     	uuesti = true;
-    }
-    if (algus > 0){
-    	algusUuesti = true;
     }
 
     
@@ -280,7 +282,7 @@
 	}
 
 function prindi(){
-	 window.print();
+	window.print();
 }
 function esitlus(){
 	window.open("/esitlus.html?laul=" + lauluNimi + "&lang=" + keel,"_self")
