@@ -1,5 +1,5 @@
 import csv
-"""
+
 faili_nimi = input("Soovitud faili nimi: ")
 fail = "../akordifailid/" + faili_nimi + ".txt"
 keel = input("Sihtkeel: ")
@@ -31,10 +31,8 @@ siht.writelines(uus_fail)
 siht.close()
 
 
-print('Fail asukohas "' + sihtfail + '" loodud.')"""
+print('Fail asukohas "' + sihtfail + '" loodud.')
 
-keel = "en"
-faili_nimi = "suur_issand_sa"
 rows = []
 with open("../index.csv", mode='r', newline='') as file:
     reader = csv.reader(file)

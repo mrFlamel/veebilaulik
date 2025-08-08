@@ -2,6 +2,7 @@
 <html id="avaleht">
 <head>
 <title>Veebilaulik</title>
+<link rel="icon" type="image/x-icon" href="favicon.webp">
 <link rel="stylesheet" href="style.css">
 <script src="lib/papaparse.min.js"></script>
 <script src="tools.js"></script>
@@ -10,16 +11,16 @@
 <body>
 
 <form id="searchForm" action="search.html" method="get">
-	<h1 id="suurLogo">Eesti kristlik <br><div id="veebilaulik">VEEBILAULIK</div></h1>
+	<img id="veebilaulikLogo" src="banner.png" draggable="false">
   	<div class="embed-submit-field">
-  		<input id="otsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
+  		<input id="otsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit...">
   		<button id="otsimisKinnitus" type="submit" value="Submit">Otsi</button>
   	</div>
 </form>
 
 
 <div id="soovitusteContainer">
-	<h1>Soovitused:</h1>
+	<h1>Avasta uusi laule:</h1>
 	<div id="soovitused">
 		<div class="soovitus">
 			<h2>Kõrgele</h2>
@@ -78,11 +79,11 @@
 <!-- EMPTY SPACE FILLER -->
 <div style="height:100%"></div>
 <div class="footer">
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="toeta.html" class="footerLink">Toeta</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
+  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
   <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
   <a href="panusta.html" class="footerLink">Panusta</a>
+  <a href="meist.html" class="footerLink">Meist</a>
+  <a href="kontakt.html" class="footerLink">Kontakt</a>
   <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
 </div>
 

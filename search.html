@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Veebilaulik</title>
+<link rel="icon" type="image/x-icon" href="favicon.webp">
 <link rel="stylesheet" href="style.css">
 <script src="tools.js"></script>
 <script src="lib/papaparse.min.js"></script>
@@ -54,11 +55,11 @@
 <!-- EMPTY SPACE FILLER -->
 <div style="height:100%"></div>
 <div class="footer">
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="toeta.html" class="footerLink">Toeta</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
+  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
   <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
   <a href="panusta.html" class="footerLink">Panusta</a>
+  <a href="meist.html" class="footerLink">Meist</a>
+  <a href="kontakt.html" class="footerLink">Kontakt</a>
   <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
 </div>
 
@@ -150,11 +151,11 @@ getSongIndex().then(songIndex => {
 
 		if(algus+lkTulemusteArv > results.length){
 			for (let i=algus; i<results.length; i++){
-				looOtsitavaPakkumine(i, songIndex);
+				looOtsitavaPakkumine(i, results);
 			}
 		} else {
 			for (let i=algus; i<(lkTulemusteArv+algus); i++){
-				looOtsitavaPakkumine(i, songIndex);
+				looOtsitavaPakkumine(i, results);
 			}
 		}
 	}
@@ -167,7 +168,12 @@ function looOtsitavaPakkumine(looNumber, songIndex){
 	var container = document.createElement("div");
 	container.classList.add("otsinguPakkumine");
 	container.onclick = function(){window.open("laulud/" + songIndex[looNumber].fail + ".html", "_self")};
-	const pealkiri = songIndex[looNumber].pealkiri + " / " + songIndex[looNumber].orgpealkiri + " - " + songIndex[looNumber].viisi_autor
+	var pealkiri = ""
+	if (songIndex[looNumber].orgpealkiri){
+		pealkiri = songIndex[looNumber].pealkiri + " / " + songIndex[looNumber].orgpealkiri + " - " + songIndex[looNumber].viisi_autor
+	} else {
+		pealkiri = songIndex[looNumber].pealkiri + " - " + songIndex[looNumber].viisi_autor
+	}
 	container.innerHTML = '<h2 class="otsitavaPealkiri">' + pealkiri +'</h2><a class="otsitavaId">'+ songIndex[looNumber].id +'</a>'
 	document.getElementById("otsinguTulemus").appendChild(container);
 }

@@ -26,11 +26,8 @@ body {
 
 
 /* Avaleht */
-#suurLogo {
-	text-align: center;
-}
-#veebilaulik {
-	font-size: 40px;
+#veebilaulikLogo {
+	padding-bottom: 30px;
 }
 .embed-submit-field{
 	display: flex;
@@ -60,6 +57,12 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+@media only screen and (max-width: 600px) { /*Ma ei tea miks see ei tööta, aga midagi sellelaadset võiks olla*/
+  #searchForm {
+  	height: 40%;
+  }
 }
 
 #soovitusteContainer {
