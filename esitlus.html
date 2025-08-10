@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="style.css">
 <script src="lib/papaparse.min.js"></script>
 <script src="tools.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js"></script>
 <meta charset="UTF-8">
 </head>
 <body>
@@ -29,10 +30,111 @@
 		<a>Kiida / Praise <button>X</button></a><br>
 		<a>Kiida / Praise <button>X</button></a><br>
 	</div>
-	<input type="text" placeholder="Otsi laulu"><br>
-	<button>Loo esitlus</button>
+	<input id="lauluOtsing" type="text" placeholder="Otsi laulu"><br>
+	<button onclick="looEsitlus()">Loo esitlus</button>
 </div>
+<script>
 
+
+function hangiSonad(lauluNimiInner){
+	fetch("/akordifailid/" + lauluNimiInner + ".txt")
+	.then(response => {
+		if (!response.ok){
+			throw new Error("Laulu avamine ebaõnnestus.")
+		} else {
+			return response.text()
+		}
+	})
+	.then(text => {
+		tuhiSlaid(pres)
+		uusLaul(text)
+		if (lauluNimiInner == viimane){
+			pres.writeFile({ fileName: "Esitlus - VEEBILAULIK.pptx" });
+		}
+	})
+}
+
+function uusLaul(sonad){
+	let sonadToot = sonad.replace(/[\r]+/g, "")
+	const read = sonadToot.split("\n")
+
+
+
+	var kasOnAkordid = true;
+	var juurdeLisada = ""
+	for (i in read){
+		if (read[i] == ""){continue}
+		if (read[i].startsWith("[")){
+			if (topeltRida){
+				if (juurdeLisada == ""){continue}
+				pres = uusSlaid(juurdeLisada.toUpperCase(), pres)
+				juurdeLisada = ""
+			}
+			continue
+		}
+
+		if (kasOnAkordid){
+			kasOnAkordid = false;
+			continue
+		} else {
+			kasOnAkordid = true
+			
+			if (topeltRida){
+				if (juurdeLisada == ""){
+					juurdeLisada = read[i];
+				} else {
+					let tekst = juurdeLisada + "\n" + read[i];
+					pres = uusSlaid(tekst.toUpperCase(), pres)
+					juurdeLisada = ""
+				}
+			} else {
+				let tekst = read[i].replace(/[.,\/#!$%\^&\*;:{}=\_`~()]+$/g,"");
+				pres = uusSlaid(tekst.toUpperCase(), pres)
+			}
+			
+		}
+	}
+
+	if (topeltRida && juurdeLisada != ""){
+		let tekst = juurdeLisada;
+		pres = uusSlaid(tekst.toUpperCase(), pres)
+		juurdeLisada = ""
+	}
+
+}
+
+var pres = new PptxGenJS();
+let topeltRida = true;
+var laulud = ['palju-pohjust-laulmiseks', 'jeesus-jeesus', 'tanan_sind'];
+var viimane = "";
+
+function looEsitlus(){
+	laulud = document.getElementById("lauluOtsing").value.split(", ")
+	viimane = laulud.pop()
+	laulud.push(viimane)
+
+	for (i in laulud){
+		hangiSonad(laulud[i]);
+	}
+}
+
+
+function uusSlaid(tekst, esitlus){
+	let slide = esitlus.addSlide();
+	let textboxOpts = { x: '15%', y: '0%', w: '70%', h: "95%", color: "FFFFFF", align: "center", fontSize: 36 };
+	slide.addText(tekst, textboxOpts);
+	slide.background = { color: "000000" };
+	return esitlus
+}
+function tuhiSlaid(esitlus){
+	let slide = esitlus.addSlide()
+	slide.background = { color: "000000" };
+	return esitlus
+}
+
+
+
+</script>
 <!-- EMPTY SPACE FILLER -->
 <div style="height:100%"></div>
 <div class="footer">
