@@ -64,12 +64,15 @@
 
 
 <script>
+	var uuendatudList = [];
 	getSongIndex().then(songIndex => {
+		uuendatudList = songIndex;
 		for (let i = 0; i < document.getElementsByClassName("soovitus").length; i++) {
-			const randomSong = randomInt(0, songIndex.length-1);
+			const randomSong = randomInt(0, uuendatudList.length-1);
       document.getElementsByClassName("soovitus")[i].children[0].innerText = songIndex[randomSong].pealkiri;
 			document.getElementsByClassName("soovitus")[i].children[1].innerText = songIndex[randomSong].viisi_autor;
 			document.getElementsByClassName("soovitus")[i].onclick = function(){window.open("laulud/" + songIndex[randomSong].fail + ".html", "_self")};
+			uuendatudList.splice(randomSong, 1)
     }
 	})
 	
