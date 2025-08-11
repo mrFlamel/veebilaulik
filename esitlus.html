@@ -30,7 +30,12 @@
 		<a>Kiida / Praise <button>X</button></a><br>
 		<a>Kiida / Praise <button>X</button></a><br>
 	</div>
-	<input id="lauluOtsing" type="text" placeholder="Otsi laulu"><br>
+	<input id="lauluOtsing" type="text" placeholder="Laulude nimed ', ' eraldatud "><br>
+	<input id="fondiNimi" type="text" placeholder="Fondi nimi"><br>
+	<input id="fondiSuurus" type="text" placeholder="Fondi suurus"><br>
+	<input id="tekstiVarv" type="text" placeholder="Teksti värv (HEX)"><br>
+	<input id="taustaVarv" type="text" placeholder="Tausta värv (HEX)"><br>
+	
 	<button onclick="looEsitlus()">Loo esitlus</button>
 </div>
 <script>
@@ -105,6 +110,10 @@ function uusLaul(sonad){
 
 var pres = new PptxGenJS();
 let topeltRida = true;
+var taust = "#e8e6e0"
+var tekst = "#000000"
+var font = "Bebas Neue"
+var fondiSuurus = "36"
 var laulud = ['palju-pohjust-laulmiseks', 'jeesus-jeesus', 'tanan_sind'];
 var viimane = "";
 
@@ -112,6 +121,12 @@ function looEsitlus(){
 	laulud = document.getElementById("lauluOtsing").value.split(", ")
 	viimane = laulud.pop()
 	laulud.push(viimane)
+
+	taust = document.getElementById("taustaVarv").value;
+	tekst = document.getElementById("tekstiVarv").value;
+	font = document.getElementById("fondiNimi").value;
+	fondiSuurus = document.getElementById("fondiSuurus").value;
+	
 
 	for (i in laulud){
 		hangiSonad(laulud[i]);
@@ -121,14 +136,14 @@ function looEsitlus(){
 
 function uusSlaid(tekst, esitlus){
 	let slide = esitlus.addSlide();
-	let textboxOpts = { x: '15%', y: '0%', w: '70%', h: "95%", color: "FFFFFF", align: "center", fontSize: 36 };
+	let textboxOpts = { x: '15%', y: '0%', w: '70%', h: "95%", color: tekst, align: "center", fontSize: parseInt(fondiSuurus), fontFace: font };
 	slide.addText(tekst, textboxOpts);
-	slide.background = { color: "000000" };
+	slide.background = { color: taust };
 	return esitlus
 }
 function tuhiSlaid(esitlus){
 	let slide = esitlus.addSlide()
-	slide.background = { color: "000000" };
+	slide.background = { color: taust };
 	return esitlus
 }
 
