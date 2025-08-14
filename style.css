@@ -3,7 +3,7 @@
 	--bg-color: #FEFAE0;
 	--lighter-bg-color: #fbf9ea;
 	--main-color: #0A400C;
-	--darker-main-color: #234b76;
+	--darker-main-color: #031604;
 	--text-color: #FADA7A;
 }
 
@@ -105,7 +105,6 @@ body {
 /* Style the header with a grey background and some padding */
 .header {
 	width: 100%;
-	overflow: hidden;
 	background-color: var(--main-color);
 	padding-bottom: 20px;
 	padding-top: 20px;

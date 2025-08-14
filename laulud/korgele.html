@@ -94,7 +94,13 @@
 				helistikud(songIndex[i]);
 
 				keeled(songIndex[i].keeled);
-				keel = document.getElementById('keel').value;
+				if (document.getElementById('keel').value){
+					keel = document.getElementById('keel').value;
+				} else {
+					document.getElementById('keel').remove();
+					keel = "et"
+				}
+				
 
 				if (keel != "et"){
 					hangiSonad(lauluNimi + "_" + keel)
@@ -251,6 +257,9 @@
 			languages = "et";
 		}
 		const splitted = languages.split("/");
+		if (splitted.length == 1){
+			return
+		}
 		for (i in splitted){
 			var valik = document.createElement("option");
     	valik.value = splitted[i]
