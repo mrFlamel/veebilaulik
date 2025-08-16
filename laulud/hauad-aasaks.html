@@ -135,7 +135,7 @@
 	function showLyrics(text){
 		const parser = new ChordSheetJS.ChordsOverWordsParser();
 		song = parser.parse(text);
-		const formatter = new ChordSheetJS.HtmlTableFormatter();
+		const formatter = new ChordSheetJS.HtmlTableFormatter({normalizeChords: false});
 		const disp = formatter.format(song);
 		document.getElementById('lauluDiv').innerHTML = disp;
 		replaceSpacesWithNbsp(document.getElementById('lauluDiv'))
