@@ -340,3 +340,41 @@ body {
 	animation-fill-mode: forwards;
 	cursor: pointer;
 }
+
+
+
+
+/*TEEMADE LEHT*/
+#teemad{
+	width: 50%;
+}
+#teemad h1{
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+#teemadVeerud{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-left: 20px;
+}
+.teemadVeerg{
+	width: 100%;
+}
+
+.suurTeema p{
+	margin-left: 20px;
+	font-size: 18px;
+}
+.suurTeema h3{
+	font-size: 24px;
+}
+.suurTeema a{
+	border-radius: 5px;
+	text-decoration: none;
+	color: var(--main-color);
+}
+.suurTeema a:hover{
+	color: var(--darker-main-color);
+	background-color: var(--text-color);
+}

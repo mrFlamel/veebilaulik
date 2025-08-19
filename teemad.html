@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html id="avaleht">
+<head>
+<title>Veebilaulik</title>
+<link rel="icon" type="image/x-icon" href="favicon.webp">
+<link rel="stylesheet" href="style.css">
+<script src="lib/papaparse.min.js"></script>
+<script src="tools.js"></script>
+<meta charset="UTF-8">
+</head>
+<body>
+<div class="header">
+  <a href="index.html" class="logo">Veebilaulik</a>
+  <form id="topbarSearch" action="search.html" method="get">
+  		<div class="embed-submit-field">
+  			<input id="topbarOtsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
+  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
+  		</div>
+  </form>
+</div>
+
+
+
+<div id="teemad">
+	<h1>Laulude temaatiline jaotus:</h1>
+
+	<div id="teemadVeerud">
+	<div class="teemadVeerg">
+		<div class="suurTeema">
+			<h3><a href="/search.html?searchTerm=Jumal">Jumal:</a></h3>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jumal: Looja">Looja</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jumal: Armastus">Armastus</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jumal: Alati lähedal">Alati lähedal</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jumal: Püha Kuningas">Püha Kuningas</a></p>
+		</div>
+		<div class="suurTeema">
+			<h3><a href="/search.html?searchTerm=Jeesus Kristus">Jeesus Kristus:</a></h3>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jeesus Kristus: Advent ja jõulud">Advent ja jõulud</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jeesus Kristus: Surmast ellu">Surmast ellu</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jeesus Kristus: Nimi üle kõige">Nimi üle kõige</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Jeesus Kristus: Parim sõber">Parim sõber</a></p>
+		</div>
+		<div class="suurTeema">
+			<h3><a href="/search.html?searchTerm=Püha Vaim">Püha Vaim</a></h3>
+		</div>
+	</div>
+
+
+	<div class="teemadVeerg">
+		<div class="suurTeema">
+			<h3><a href="/search.html?searchTerm=Palvelaulud">Palvelaulud</a></h3>
+		</div>
+		<div class="suurTeema">
+			<h3><a href="/search.html?searchTerm=Tänu ja ülistus">Tänu ja ülistus</a></h3>
+		</div>
+		<div class="suurTeema">
+			<h3><a href="/search.html?searchTerm=Kristlik elu">Kristlik elu:</a></h3>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Kristlik elu: Taevateel">Taevateel</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Kristlik elu: Jumala kaastöölisena">Jumala kaastöölisena</a></p>
+			<p>–&nbsp;<a href="/search.html?searchTerm=Kristlik elu: Meeleparandus">Meeleparandus</a></p>
+		</div>
+		<div class="suurTeema">
+			<h3><a href="/search.html?searchTerm=Piibel">Piibel</a></h3>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<script>
+
+//TEEMADE STATISTIKA
+
+getSongIndex().then(songIndex => {
+
+let elements = document.getElementsByTagName('a');
+var sorditudElemendid = []
+var praeguneSuurPealkiri = ""
+for (i in elements){
+	if (elements[i].href == undefined){
+		continue
+	}
+	if (elements[i].href.includes("/search.html")){
+		if (elements[i].innerText.slice(-1) == ":"){
+			praeguneSuurPealkiri = elements[i].innerText;
+			sorditudElemendid.push(elements[i].innerText.substring(0,elements[i].innerText.length-1))
+		} else if (["Püha Vaim", "Palvelaulud", "Tänu ja ülistus", "Piibel"].includes(elements[i].innerText)){
+			sorditudElemendid.push(elements[i].innerText)
+		} else {
+			sorditudElemendid.push(praeguneSuurPealkiri + " " + elements[i].innerText)
+		}
+	}
+}
+
+
+for (l in sorditudElemendid){
+	var results = [];
+	var toSearch = sorditudElemendid[l];
+
+	for(var i=0; i<songIndex.length; i++) {
+    if(songIndex[i].teemad.indexOf(toSearch)!=-1) {
+    	if (results.some(e => e.fail === songIndex[i].fail)){} else {
+    		results.push(songIndex[i]);
+    	}
+  	}
+	}
+	elements[parseInt(l)+1].innerHTML += " (" + results.length + ")";
+
+}
+})
+
+</script>
+
+
+<!-- EMPTY SPACE FILLER -->
+<div style="height:100%"></div>
+<div class="footer">
+  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
+  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+  <a href="panusta.html" class="footerLink">Panusta</a>
+  <a href="meist.html" class="footerLink">Meist</a>
+  <a href="kontakt.html" class="footerLink">Kontakt</a>
+  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+</div>
+
+
+</body>
+</html>
