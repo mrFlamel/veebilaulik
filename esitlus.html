@@ -7,6 +7,7 @@
 <script src="lib/papaparse.min.js"></script>
 <script src="tools.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js"></script>
+<script>const lauluNimi = findGetParameter("laul");</script>
 <meta charset="UTF-8">
 </head>
 <body>
@@ -22,26 +23,22 @@
 
 <div id="looEsitlus">
 	<h1>Loo esitlus:</h1>
-	<div id="esitlusLauludeCont">
-		<a>Kiida / Praise <button>X</button></a><br>
-		<a>Kiida / Praise <button>X</button></a><br>
-		<a>Kiida / Praise <button>X</button></a><br>
-		<a>Kiida / Praise <button>X</button></a><br>
-		<a>Kiida / Praise <button>X</button></a><br>
-		<a>Kiida / Praise <button>X</button></a><br>
-	</div>
 	<input id="lauluOtsing" type="text" placeholder="Laulude nimed ', ' eraldatud "><br>
 	<input id="fondiNimi" type="text" placeholder="Fondi nimi"><br>
 	<input id="fondiSuurus" type="text" placeholder="Fondi suurus"><br>
 	<input id="tekstiVarv" type="text" placeholder="Teksti värv (HEX)"><br>
 	<input id="taustaVarv" type="text" placeholder="Tausta värv (HEX)"><br>
-	
+	<input id="topeltRida" type="checkbox"> Topeltrida<br>
 	<button onclick="looEsitlus()">Loo esitlus</button>
 </div>
 <script>
 
 
 function hangiSonad(lauluNimiInner){
+	if (!lauluNimiInner){
+		lauluNimiInner = lauluNimi;
+	}
+
 	fetch("/akordifailid/" + lauluNimiInner + ".txt")
 	.then(response => {
 		if (!response.ok){
@@ -122,10 +119,13 @@ function looEsitlus(){
 	viimane = laulud.pop()
 	laulud.push(viimane)
 
+	if(!viimane){viimane = lauluNimi}
+
 	taust = document.getElementById("taustaVarv").value;
 	tekst = document.getElementById("tekstiVarv").value;
 	font = document.getElementById("fondiNimi").value;
 	fondiSuurus = document.getElementById("fondiSuurus").value;
+	topeltRida = document.getElementById("topeltRida").checked;
 	
 
 	for (i in laulud){
