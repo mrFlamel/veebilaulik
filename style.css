@@ -378,3 +378,12 @@ body {
 	color: var(--darker-main-color);
 	background-color: var(--text-color);
 }
+
+
+
+
+/*TEKSTIPÕHISED JUHEND*/
+.tekstJuhend {
+	max-width: 70%;
+	min-width: 30%;
+}
