@@ -6,9 +6,40 @@ function findGetParameter(parameterName) {
         .split("&")
         .forEach(function (item) {
           tmp = item.split("=");
-          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+          if (tmp[0] === parameterName){ result = decodeURIComponent(tmp[1])};
         });
     return result;
+}
+
+function changeGetParameter(parameterName, newParameterValue){
+    var oldUrl = window.location.href;
+    var baseUrl = oldUrl.split("?")[0]
+    var parameters = oldUrl.split("?")[1];
+    var forAdding = ""
+    var changedParameter = "";
+    var url_end = ""
+
+    if (parameters) {
+        parameters = parameters.split("&");
+        for (var i=0; i<parameters.length; i++){
+            if (parameters[i].split("#").length == 2){
+                parameters[i] = parameters[i].split("#")[0]
+            }
+
+            if(parameters[i].split('=')[0] == parameterName){
+                changedParameter = parameters[i].split("=")[0] + "=" + newParameterValue;
+                for (var l=i+1; l<parameters.length; l++){
+                    url_end = url_end + "&" + parameters[l]
+                }
+                break
+            } else {
+                forAdding = forAdding + parameters[i] + "&"
+            }
+        }
+    }
+    if (changedParameter == ""){changedParameter = parameterName + "=" + newParameterValue}
+    let newUrl = baseUrl + "?" + forAdding + changedParameter + url_end;
+    window.history.pushState({path:newUrl},'',newUrl);
 }
 
 function insertAfter(newNode, referenceNode) {

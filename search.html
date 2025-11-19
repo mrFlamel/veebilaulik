@@ -13,9 +13,9 @@
 
 <div class="header">
   <a href="index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" action="search.html" method="get">
+  <form id="topbarSearch" onsubmit='event.preventDefault(); vahetaLk("1");'>
   		<div class="embed-submit-field">
-  			<input id="topbarOtsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
+  			<input id="topbarOtsimisVali" type="text" placeholder="Otsi laulu pealkirja, autorit, numbrit">
   			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
   		</div>
   </form>
@@ -88,23 +88,10 @@ function vahetaLk(value){
 		}
 		return
 	}
-	var newAdditionalURL = "";
-    var tempArray = window.location.href.split("?");
-    var baseURL = tempArray[0];
-    var additionalURL = tempArray[1];
-    var temp = "";
-    if (additionalURL) {
-        tempArray = additionalURL.split("&");
-        for (var i=0; i<tempArray.length; i++){
-            if(tempArray[i].split('=')[0] != "lk"){
-                newAdditionalURL += temp + tempArray[i];
-                temp = "&";
-            }
-        }
-    }
-    var rows_txt = temp + "" + "lk" + "=" + value;
-    const url = baseURL + "?" + newAdditionalURL + rows_txt;
-    window.open(url, "_self")
+	changeGetParameter("lk", value);
+	currentPage = value;
+	changeValueByClassName("otsinguLahter", "value", currentPage)
+	otsi()
 }
 function nextNr(){
 	vahetaLk(parseInt(document.getElementsByClassName("otsinguLahter")[0].value)+1);
@@ -116,18 +103,27 @@ function lastNr(){
 	vahetaLk(parseInt(document.getElementsByClassName("otsinguNupp")[2].innerText.substring(1)));
 }
 
-document.getElementById("topbarOtsimisVali").value = decodeURIComponent(findGetParameter("searchTerm").replace(/\+/g, '%20')).trim();
+document.getElementById("topbarOtsimisVali").value = findGetParameter("searchTerm").replace(/\+/g, '%20');
 
 
 /*OTSIMINE TOIMUB SIIN*/
+var globalSongIndex = []
 getSongIndex().then(songIndex => {
+	globalSongIndex = songIndex;
+	otsi()
+})
+
+function otsi(){
 	var results = [];
-	const toSearch = decodeURIComponent(findGetParameter("searchTerm").toLowerCase().replace(/\+/g, '%20')).trim();
-	for(var i=0; i<songIndex.length; i++) {
-	  for(key in songIndex[i]) {
-	    if(songIndex[i][key].toLowerCase().indexOf(toSearch)!=-1) {
-	    	if (results.some(e => e.fail === songIndex[i].fail)){} else {
-	    		results.push(songIndex[i]);
+	const toSearch = document.getElementById("topbarOtsimisVali").value.toLowerCase().replace(/\+/g, '%20')
+	changeGetParameter("searchTerm", toSearch);
+	
+
+	for(var i=0; i<globalSongIndex.length; i++) {
+	  for(key in globalSongIndex[i]) {
+	    if(globalSongIndex[i][key].toLowerCase().indexOf(toSearch)!=-1) {
+	    	if (results.some(e => e.fail === globalSongIndex[i].fail)){} else {
+	    		results.push(globalSongIndex[i]);
 	    	}
 	    }
 	  }
@@ -159,10 +155,7 @@ getSongIndex().then(songIndex => {
 			}
 		}
 	}
-	
-	
-	
-})
+}
 
 function looOtsitavaPakkumine(looNumber, songIndex){
 	var container = document.createElement("div");
