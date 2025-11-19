@@ -28,16 +28,14 @@
 	<input id="fondiSuurus" type="text" placeholder="Fondi suurus"><br>
 	<input id="tekstiVarv" type="text" placeholder="Teksti värv (HEX)"><br>
 	<input id="taustaVarv" type="text" placeholder="Tausta värv (HEX)"><br>
-	<input id="topeltRida" type="checkbox"> Topeltrida<br>
+	<input id="topeltRida" type="checkbox"> 2 rida ühel slaidil (Vaikimisi: 1)<br>
 	<button onclick="looEsitlus()">Loo esitlus</button>
 </div>
 <script>
-
+// LISA GET PARAMEETER OTSINGUSSE
+document.getElementById("lauluOtsing").value = lauluNimi;
 
 function hangiSonad(lauluNimiInner){
-	if (!lauluNimiInner){
-		lauluNimiInner = lauluNimi;
-	}
 
 	fetch("/akordifailid/" + lauluNimiInner + ".txt")
 	.then(response => {
@@ -118,8 +116,6 @@ function looEsitlus(){
 	laulud = document.getElementById("lauluOtsing").value.split(", ")
 	viimane = laulud.pop()
 	laulud.push(viimane)
-
-	if(!viimane){viimane = lauluNimi}
 
 	taust = document.getElementById("taustaVarv").value;
 	tekst = document.getElementById("tekstiVarv").value;
