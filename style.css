@@ -1,11 +1,13 @@
 /* Värvide määramine */
 :root {
-	--bg-color: #FEFAE0;
-	--lighter-bg-color: #fbf9ea;
+	--bg-color: #fbfcf0;
+	--lighter-bg-color: #ffffff;
 	--main-color: #0A400C;
 	--darker-main-color: #031604;
 	--text-color: #FADA7A;
 }
+
+
 
 /* Igal pool olev "body" */
 body {
@@ -16,11 +18,13 @@ body {
 	height: 100%;
 	margin: 0px;
 }
+html {
+	height: 100%;
+}
 #avaleht {
 	height: 100%;
 	margin: 0px;
 }
-
 
 
 
