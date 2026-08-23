@@ -53,8 +53,8 @@ function changeValueByClassName(className, property, newValue){
 }
 
 async function getSongIndex(){
-    fetch("/index.csv")
-        const response = await fetch("/index.csv");
+    fetch("/nimekiri.csv")
+        const response = await fetch("/nimekiri.csv");
         if (!response.ok) {
             throw new Error("Sõnade nimekirja hankimine ebaõnnestus");
         }
@@ -96,6 +96,12 @@ function looLauluInfo(selgitus, andmed, element="i", id="puudub", siht="lauluInf
         info.id = id
     }
     document.getElementById(siht).appendChild(info);
+}
+
+
+function lisaLauluInfo(selgitus, siht){
+    var objekt = document.getElementsByClassName(siht)[0];
+    objekt.innerHTML = selgitus;
 }
 
 

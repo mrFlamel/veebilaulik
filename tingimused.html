@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html id="avaleht">
 <head>
-<title>Veebilaulik</title>
-<link rel="icon" type="image/x-icon" href="favicon.webp">
-<link rel="stylesheet" href="style.css">
-<script src="lib/papaparse.min.js"></script>
-<script src="tools.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js"></script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kasutustingimused — Veebilaulik</title>
+<link rel="icon" type="image/x-icon" href="favicon.webp">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<div class="header">
-  <a href="index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" action="search.html" method="get">
-  		<div class="embed-submit-field">
-  			<input id="topbarOtsimisVali" type="text" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
-  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
-  		</div>
-  </form>
-</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Veebi<em>laulik</em></a>
+    <nav class="main-nav">
+      <a href="index.html">Avaleht</a>
+      <a href="search.html">Laulud</a>
+      <a href="panusta.html">Panusta</a>
+    </nav>
+  </div>
+</header>
 
 
-<div class="tekstJuhend">
-<h1>Veebilauliku kasutustingimused</h1><br>
+<main class="wrap">
 
-Veebilaulik on mõeldud kristlike laulude kogumiseks, et säilitada kristliku muusikat ja lihtsustada Jumalale laulmist. <br><br>
-Leht kuulub <a href="https://github.com/mrFlamel/veebilaulik?tab=GPL-3.0-1-ov-file">GPL-3.0 litsentsi</a> alla. See tähendab, et veebilehe koodi ja sisu on lubatud tasuta jagada, muuta ja levitada, kuid tuleb ära mainida allikas ja litsents peab jagades kaasas käima. Kui sa otsustad, et ei soovi oma laule siin veebilehel hoida, siis kontakteeruge arendusmeeskonnaga.
-<br><br>
-Lehte hoiavad üleval vabatahtlikud. <br>
-<br>
-<br>
-Küsimuste korral pöörduge arendusmeeskonna poole.
-</div>
+  <section class="section" style="padding-top:36px; border-top:none;">
+    <h1 class="page-title">Veebilauliku kasutustingimused</h1>
+    <div class="prose">
+      <p>Veebilaulik on mõeldud kristlike laulude kogumiseks, et säilitada kristliku muusikat ja lihtsustada Jumalale laulmist. 
+        Lehel olevaid laule on lubatud kasutada ainult Jumalale ülistuseks.</p>
+      
+      <p>Veebilaulikut peavad üleval vabatahtlikud. <a href="meist.html">Uuri lähemalt</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Autoriõigustest</h2>
+    <div class="prose">
+      <p>Veebilauliku kood kuulub <a href="https://github.com/mrFlamel/veebilaulik?tab=GPL-3.0-1-ov-file">GPL-3.0 litsentsi</a> alla. 
+      See tähendab, et seda on lubatud tasuta jagada, muuta ja levitada, kuid tuleb ära mainida allikas ja litsents peab jagades kaasas käima.</p>
+      <p>Kui sa oled artist ja soovid, et sinu laule ei hoitaks siin veebilehel, siis <a href="meist.html">võta ühendust arendusmeeskonnaga</a>.</p>
+    </div>
+  </section>
+
+</main>
 
 
-<!-- EMPTY SPACE FILLER -->
-<div style="height:100%"></div>
-<div class="footer">
-  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
-  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+<footer class="site-footer">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
   <a href="panusta.html" class="footerLink">Panusta</a>
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
-  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
-</div>
+	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  </div>
+</footer>
 
 
 </body>

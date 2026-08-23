@@ -1,86 +1,90 @@
 <!DOCTYPE html>
 <html id="avaleht">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Veebilaulik</title>
 <link rel="icon" type="image/x-icon" href="favicon.webp">
-<link rel="stylesheet" href="style.css">
-<script src="lib/papaparse.min.js"></script>
+<link rel="stylesheet" href="assets/styles.css">
 <script src="tools.js"></script>
-<meta charset="UTF-8">
 </head>
 <body>
 
-<form id="searchForm" action="search.html" method="get">
-	<img id="veebilaulikLogo" src="banner.svg" draggable="false">
-  	<div class="embed-submit-field">
-  		<input id="otsimisVali" type="text" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit...">
-  		<button id="otsimisKinnitus" type="submit" value="Submit">Otsi</button>
-  	</div>
-  <div style="width: 100%;text-align: center;margin-top: 40px;font-weight: bold;">SEE VEEBILEHT ON VEEL ARENDUSES!</div>
-</form>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Veebi<em>laulik</em></a>
+    <nav class="main-nav">
+      <a href="index.html" aria-current="page">Avaleht</a>
+      <a href="search.html">Laulud</a>
+      <a href="panusta.html">Panusta</a>
+    </nav>
+  </div>
+</header>
 
 
-<div id="soovitusteContainer">
-	<h1>Avasta uusi laule:</h1>
-	<div id="soovitused">
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		<div class="soovitus">
-			<h2>Kõrgele</h2>
-			<p>Mari Maasikas</p>
-		</div>
-		
-	</div>
-</div>
+
+<main class="wrap">
+
+	<section class="section" style="padding-top:36px;">
+		<img id="veebilaulikLogo" src="banner.svg" draggable="false">
+		<form class="search-field" action="search.html" method="get">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      		<input id="otsimisVali" name="searchTerm" type="text" placeholder="Otsi laulu pealkirja, autorit, numbrit..." autocomplete="off">
+		</form>
+	</section>
+
+  <section class="section">
+    <h2 class="section-title">Teemad</h2>
+    <div class="tag-row">
+      <a class="tag" href="search.html?lk=1&tag=Looja">Looja</a>
+      <a class="tag" href="search.html?lk=1&tag=Suurim armastus">Suurim armastus</a>
+      <a class="tag" href="search.html?lk=1&tag=Alati lähedal">Alati lähedal</a>
+      <a class="tag" href="search.html?lk=1&tag=Püha Kuningas">Püha Kuningas</a>
+      <a class="tag" href="search.html?lk=1&tag=Advent ja jõulud">Advent ja jõulud</a>
+      <a class="tag" href="search.html?lk=1&tag=Surmast ellu">Surmast ellu</a>
+      <a class="tag" href="search.html?lk=1&tag=Nimi üle kõige">Nimi üle kõige</a>
+      <a class="tag" href="search.html?lk=1&tag=Parim sõber">Parim sõber</a>
+      <a class="tag" href="search.html?lk=1&tag=Püha Vaim">Püha Vaim</a>
+      <a class="tag" href="search.html?lk=1&tag=Palvelaulud">Palvelaulud</a>
+      <a class="tag" href="search.html?lk=1&tag=Tänu ja ülistus">Tänu ja ülistus</a>
+      <a class="tag" href="search.html?lk=1&tag=Taevateel">Taevateel</a>
+      <a class="tag" href="search.html?lk=1&tag=Jumala kaastöölisena">Jumala kaastöölisena</a>
+      <a class="tag" href="search.html?lk=1&tag=Meeleparandus">Meeleparandus</a>
+      <a class="tag" href="search.html?lk=1&tag=Piibel">Piibel</a>
+    </div>
+  </section>
+
+  
+  <section class="section">
+    <h2 class="section-title">Sirvi tähestiku järgi</h2>
+    <nav class="alpha-index" aria-label="Tähestiku järgi sirvimine">
+      <a href="search.html?lk=1&searchTerm=A*">A</a><a href="search.html?lk=1&searchTerm=B*">B</a><a href="search.html?lk=1&searchTerm=D*">D</a>
+      <a href="search.html?lk=1&searchTerm=E*">E</a><a href="search.html?lk=1&searchTerm=G*">G</a><a href="search.html?lk=1&searchTerm=H*">H</a>
+      <a href="search.html?lk=1&searchTerm=I*">I</a><a href="search.html?lk=1&searchTerm=J*">J</a><a href="search.html?lk=1&searchTerm=K*">K</a>
+      <a href="search.html?lk=1&searchTerm=L*">L</a><a href="search.html?lk=1&searchTerm=M*">M</a><a href="search.html?lk=1&searchTerm=N*">N</a>
+      <a href="search.html?lk=1&searchTerm=O*">O</a><a href="search.html?lk=1&searchTerm=P*">P</a><a href="search.html?lk=1&searchTerm=R*">R</a>
+      <a href="search.html?lk=1&searchTerm=S*">S</a><a href="search.html?lk=1&searchTerm=T*">T</a><a href="search.html?lk=1&searchTerm=U*">U</a>
+      <a href="search.html?lk=1&searchTerm=V*">V</a><a href="search.html?lk=1&searchTerm=Õ*">Õ</a><a href="search.html?lk=1&searchTerm=Ä*">Ä</a>
+      <a href="search.html?lk=1&searchTerm=Ö*">Ö</a><a href="search.html?lk=1&searchTerm=Ü*">Ü</a>
+      
+    </nav>
+  </section>
+
+  
+
+</main>
 
 
-<script>
-	var uuendatudList = [];
-	getSongIndex().then(songIndex => {
-		uuendatudList = Array.from(songIndex);
-		for (let i = 0; i < document.getElementsByClassName("soovitus").length; i++) {
-			const randomSong = uuendatudList[randomInt(0, uuendatudList.length-1)];
-      document.getElementsByClassName("soovitus")[i].children[0].innerText = randomSong.pealkiri;
-			document.getElementsByClassName("soovitus")[i].children[1].innerText = randomSong.viisi_autor;
-			document.getElementsByClassName("soovitus")[i].onclick = function(){window.open("laulud/" + randomSong.fail + ".html", "_self")};
-			uuendatudList.splice(uuendatudList.indexOf(randomSong), 1)
-    }
-	})
-	
-</script>
+<footer class="site-footer">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
+  <a href="panusta.html" class="footerLink">Panusta</a>
+	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  </div>
+</footer>
 
-
-<!-- EMPTY SPACE FILLER -->
+<!--
 <div style="height:100%"></div>
 <div class="footer">
   <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
@@ -89,7 +93,7 @@
   <a href="meist.html" class="footerLink">Meist</a>
   <a href="kontakt.html" class="footerLink">Kontakt</a>
   <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
-</div>
+</div>-->
 
 
 </body>

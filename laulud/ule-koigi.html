@@ -1,30 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Veebilaulik</title>
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="../assets/styles.css">
 <link rel="icon" type="image/x-icon" href="/favicon.webp">
 <script>const lauluNimi = location.href.split("/").slice(-1)[0].replace(".html", "");</script>
 <script src="/lib/chordsheetjs.min.js"></script>
 <script src="/lib/papaparse.min.js"></script>
 <script src="/tools.js"></script>
-<meta charset="UTF-8">
 </head>
 <body>
 
 
-<div class="header noPrint">
-  <a href="/index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" action="/search.html" method="get">
-  		<div class="embed-submit-field">
-  			<input id="topbarOtsimisVali" type="text" id="searchTerm" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
-  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
-  		</div>
-  </form>
+<div class="song-topbar noPrint">
+  <div class="wrap">
+    <a class="back-link" onclick="tagasi()">← Tagasi</a>
+    <div class="text-size-control" aria-label="Teksti suurus">
+      <button id="size-down" type="button" aria-label="Väiksem tekst">A−</button>
+      <button id="size-up" type="button" aria-label="Suurem tekst">A+</button>
+    </div>
+  </div>
 </div>
 
 
 
+<main class="wrap" style="max-width: 620px;">
+
+  <header class="song-head">
+    <div class="song-kicker">
+      <span class="song-number"><!--118--></span>
+      <span class="song-meta"><!--Ülistus · Tänu--></span>
+    </div>
+
+    <h1 class="song-title"><!--Suur on Su ustavus--></h1>
+
+    <p class="credits" aria-label="Laulu autorid ja päritolu">
+      <!--<span><b>Sõnad</b> Käbi Lindmets</span>
+      <span><b>Viis</b> Rein Kald</span>
+      <span><b>Tõlge</b> Maria Tamm</span>
+      <span><b>1998</b></span>-->
+    </p>
+  </header>
+
+  <nav class="resource-bar" aria-label="Akordid ja noodid">
+    <!--<span class="resource-label">Materjalid</span>
+    <a href="akordid-118.html">Kitarr <span>G</span> <i>→</i></a>
+    <a href="#">Klaver <span>F</span> <i>→</i></a>
+    <a href="#">Noodid <span>PDF</span> <i>→</i></a>-->
+  </nav>
+
+
+  <div class="lyrics" id="lyrics">
+    <!--<div class="verse">
+      <span class="vnum">1.</span>
+      <p>Suur on Su ustavus, oh mu Jumal,
+iga hommik uueneb Su arm.
+Sa oled kalju, millele ma toetun,
+Sinu käes on kindel minu tee.</p>
+    </div>
+
+    <div class="verse chorus">
+      <span class="vnum">Refrään</span>
+      <p>Suur, suur on Su ustavus,
+hommikust hommikusse uueneb see.
+Kõik, mis mul vaja, oled Sina andnud —
+suur on Su ustavus mu vastu.</p>
+    </div>
+    </div>-->
+  </div>
+
+</main>
+
+
+<!--
 
 <div id="nupuDiv" class="noPrint">
 	<button id="tagasiNupp" class="suurNupp noPrint" onclick="tagasi()">Tagasi</button>
@@ -33,44 +83,7 @@
 		<button id="esitluseNupp" class="suurNupp noPrint" onclick="esitlus()">Loo esitlus</button>
 	</div>
 </div>
-
-
-
-
-
-<div id="lauluContainer">
-	<div id="printimisContainer">
-		<div id="lauluInfo">
-			<!--<h1 id="lauluPealkiri">Suur Issand, Sa!</h1>
-			<h2 id="originaalPealkiri">Great are you Lord #0001</h2>
-			<i>
-				Autor: All Sons & Daughters<br>
-				Autoriõigused: All Sons & Daughters<br>
-				Tõlge: Jakob Luhamets	
-			</i>-->
-		</div>
-		<div id="lauluDiv">Laen laulu...</div>
-	</div>
-
-	<div id="valikuDiv" class="noPrint">
-		<select class="dropdown noPrint" id ="helistik" name="helistik" onmousedown="salvestaHetk(this.value)" onclick="kontrolliMuutust(this.value)" onchange="transposeSong(this.value);">
-  			<!--<option value='1'>A-duur</option>
-  			<option value='2'>A#-duur</option>
-  			<option value='3'>B-duur</option>
-  			<option value='4'>C-duur</option>
-  			<option value='5'>C#-duur</option>
-  			<option value='6'>D-duur</option>
-  			<option value='7'>D#-duur</option>
-  			<option value='8'>E-duur</option>
-  			<option value='9'>F-duur</option>
-  			<option value='10'>F#-duur</option>-->
-		</select><br>
-		<select class="dropdown noPrint" id="keel" name="keel" onchange="muudaKeelt(this.value);">
-  			<!--<option value='eesti'>Eesti keel</option>
-  			<option value='inglise'>Inglise keel</option>-->
-		</select>
-	</div>
-</div>
+-->
 
 <script>
 	getSongIndex().then(songIndex => {
@@ -78,35 +91,31 @@
 			if(songIndex[i].fail == lauluNimi){
 				document.title = songIndex[i].pealkiri + " - Veebilaulik"
 
-				looLauluInfo("", songIndex[i].pealkiri, "h1", "lauluPealkiri")
-				looLauluInfo("", songIndex[i].orgpealkiri, "h2", "originaalPealkiri")
-
-				if (songIndex[i].sonade_autor == ""){
-					looLauluInfo("Viis ja sõnad: ", songIndex[i].viisi_autor)
+				if (songIndex[i].orgpealkiri == ""){
+					lisaLauluInfo(songIndex[i].pealkiri, "song-title");
 				} else {
-					looLauluInfo("Viisi autor: ", songIndex[i].viisi_autor);
-					looLauluInfo("Sõnade autor: ", songIndex[i].sonade_autor);
-				}
-
-				looLauluInfo("Seade: ", songIndex[i].seade_autor);
-				looLauluInfo("Tõlge: ", songIndex[i].tolke_autor);
-
-				helistikud(songIndex[i]);
-
-				keeled(songIndex[i].keeled);
-				if (document.getElementById('keel').value){
-					keel = document.getElementById('keel').value;
-				} else {
-					document.getElementById('keel').remove();
-					keel = "et"
+					lisaLauluInfo(songIndex[i].pealkiri + " <a style='font-weight:normal'>(" + songIndex[i].orgpealkiri + ")</a>", "song-title");
 				}
 				
-
-				if (keel != "et"){
-					hangiSonad(lauluNimi + "_" + keel)
+				
+				var kelleleViidata = "";
+				if (songIndex[i].sonade_autor == ""){ //<span><b>Sõnad</b> Käbi Lindmets</span>
+					kelleleViidata = kelleleViidata + "<span><b>Viis ja sõnad</b> " + songIndex[i].viisi_autor + "</span>"
 				} else {
-					hangiSonad(lauluNimi)
+					kelleleViidata = kelleleViidata + "<span><b>Viis</b> " + songIndex[i].viisi_autor + "</span>"
+					kelleleViidata = kelleleViidata + "<span><b>Sõnad</b> " + songIndex[i].sonade_autor + "</span>"
 				}
+				if (songIndex[i].tolke_autor){
+					kelleleViidata = kelleleViidata + "<span><b>Tõlge</b> " + songIndex[i].tolke_autor + "</span>"
+				}
+				lisaLauluInfo(kelleleViidata, "credits")
+				lisaLauluInfo(songIndex[i].id, "song-number");
+				lisaLauluInfo(songIndex[i].teemad.replace(/\//g, ' · '), "song-meta");
+
+				// MATERJALID
+				lisaLauluInfo('<span class="resource-label">Materjalid</span><a target="_blank" href="/akordifailid/' + songIndex[i].fail + "-" + songIndex[i].helistik + '.pdf">Akordid <span>' + songIndex[i].helistik + '</span> <i>→</i></a>', "resource-bar")
+				
+				hangiSonad(lauluNimi)
 
 
 				break
@@ -116,7 +125,7 @@
 
 
 	function hangiSonad(lauluNimiInner){
-		fetch("/akordifailid/" + lauluNimiInner + ".txt")
+		fetch("/laulutekstid/" + lauluNimiInner + ".txt")
 		.then(response => {
 			if (!response.ok){
 				document.getElementById("lauluDiv").innerText = "Laulu avamine ebaõnnestus."
@@ -133,187 +142,89 @@
 
 	var song;
 	function showLyrics(text){
-		const parser = new ChordSheetJS.ChordsOverWordsParser();
-		song = parser.parse(text);
-		const formatter = new ChordSheetJS.HtmlTableFormatter({normalizeChords: false});
-		const disp = formatter.format(song);
-		document.getElementById('lauluDiv').innerHTML = disp;
-		replaceSpacesWithNbsp(document.getElementById('lauluDiv'))
-	}
+		laul = text.split("\n")
 
+		lõiguPealkiri = "";
+		lõik = "";
+		for (i of laul){
+			if (i==""){continue}
+			if (i.startsWith("[")){
 
+				if (lõiguPealkiri != ""){
+					var sisu = document.createElement("div");
+					if (lõiguPealkiri.startsWith("Refrään")){
+						sisu.classList.add("verse")
+						sisu.classList.add("chorus")
+					} else {
+						sisu.classList.add("verse")
+					}
+					sisu.innerHTML = "<span class='vnum'>" + lõiguPealkiri + "</span><p>" + lõik + "</p>"
+					document.getElementById("lyrics").appendChild(sisu);
+				}
 
-	document.getElementById("helistik").value = '1';
-	var praeguneHelistik = '1';
-	var votmemargid = "#";
-	function transposeSong(sihtHelistik){
-		const amount = sihtHelistik - praeguneHelistik;
-		song = song.transpose(amount);
-		if (amount == 0){
-			if (votmemargid == "#"){
-				song = song.useModifier("b");
-				votmemargid = "b";
-			} else {
-				song = song.useModifier("#")
-				votmemargid = "#";
+				lõiguPealkiri = i.substring(1, i.length-1)
+				lõik = "";
+				continue;
 			}
+			lõik += i+"\n";
+		}
+
+		var sisu = document.createElement("div");
+		if (lõiguPealkiri.startsWith("Refrään")){
+			sisu.classList.add("verse")
+			sisu.classList.add("chorus")
 		} else {
-			song = song.useModifier(votmemark(sihtHelistik, newOrder));
+			sisu.classList.add("verse")
 		}
-
-		const formatter = new ChordSheetJS.HtmlTableFormatter();
-		const disp = formatter.format(song);
-		document.getElementById('lauluDiv').innerHTML = disp;
-		replaceSpacesWithNbsp(document.getElementById('lauluDiv'))
-		praeguneHelistik = sihtHelistik;
-	}
-
-
-
-	var enharmoonilised_helistikud = []
-	function kontrolliMuutust(helistik){ 
-		if (helistik == praeguneHelistik && valik == helistik){
-			if (enharmoonilised_helistikud.includes(parseInt(helistik))){
-				getInputsByValue(helistik)[0].innerText = reverseParts(getInputsByValue(helistik)[0].innerText);
-				transposeSong(helistik);
-			}
-		}
-	}
-
-	var valik;
-	function salvestaHetk(hetk){
-		valik = hetk;
-	}
-
-
-	var newOrder = [];
-	function helistikud(laul){
-		const major = ['A-duur', 'Bb-duur', "B-duur/Cb-duur", "C-duur", "C#-duur/Db-duur", "D-duur", "Eb-duur", "E-duur", "F-duur", "F#-duur/Gb-duur", "G-duur", "Ab-duur"]
-		const minor = ['A-moll', 'A#-moll/Bb-moll', 'B-moll', 'C-moll', 'C#-moll', 'D-moll', 'D#-moll/Eb-moll', 'E-moll', 'F-moll', 'F#-moll', 'G-moll', 'G#-moll/Ab-moll']
-
-		var sihtArray = []
-		if (laul.helistik.endsWith("duur")){
-			sihtArray = major;
-		} else {
-			sihtArray = minor;
-		}
-
-		var helistik = laul.helistik;
-
-		var asukoht;
-		for (let i = 0; i < sihtArray.length; i++) {
-			if (sihtArray[i].includes(laul.helistik)){
-				asukoht = i;
-				break
-			}
-    }
-
-    var uuesti = false;
-    var algusUuesti = false;
-    var algus = asukoht - 5;
-    if (algus > 0){
-    	algusUuesti = true;
-    }
-    if (algus < 0){
-    	algus += 12;
-    	uuesti = true;
-    }
-
-    
-    for (let i=algus; i<sihtArray.length; i++){
-    	newOrder.push(sihtArray[i])
-    	enharmoonilised_helistikud = kontrEnharmooniat(i, helistik, enharmoonilised_helistikud, newOrder);
-    }
-    if (uuesti){
-    	for (let i=0; i<sihtArray.length-(12-algus); i++){
-    		newOrder.push(sihtArray[i])
-    		enharmoonilised_helistikud = kontrEnharmooniat(i, helistik, enharmoonilised_helistikud, newOrder);
-    	}
-    }
-    if (algusUuesti){
-    	for (let i=0; i<algus; i++){
-    		newOrder.push(sihtArray[i])
-    		enharmoonilised_helistikud = kontrEnharmooniat(i, helistik, enharmoonilised_helistikud, newOrder);
-    	}
-    }
-
-    for (let i=0; i<newOrder.length; i++){
-    	var valik = document.createElement("option");
-    	valik.value = i
-    	valik.innerText = newOrder[i]
-    	if (newOrder[i] == helistik){
-    		valik.selected = "selected";
-    		praeguneHelistik = i;
-    	}
-    	document.getElementById("helistik").appendChild(valik);
-    }
-
-
-	}
-
-
-	function keeled(languages){
-		if (languages == ""){
-			languages = "et";
-		}
-		const splitted = languages.split("/");
-		if (splitted.length == 1){
-			return
-		}
-		for (i in splitted){
-			var valik = document.createElement("option");
-    	valik.value = splitted[i]
-    	let shouldContinue = false;
-    	valik.innerText = (function(){switch(splitted[i]){
-										    	case "et": return "Eesti keel";
-										    	case "en": return "Inglise keel";
-										    	default: shouldContinue=true;break;
-										    }})();
-			if (shouldContinue){console.error("Tundmatu keel vahele jäetud...");continue}
-			document.getElementById("keel").appendChild(valik);
-		}
+		sisu.innerHTML = "<span class='vnum'>" + lõiguPealkiri + "</span><p>" + lõik + "</p>"
+		document.getElementById("lyrics").appendChild(sisu);
 	}
 
 
 	function tagasi(){
 		if (document.referrer.includes("search.html")){
+			console.log(document.referrer)
 			history.back()
+			if (!window.location.href.includes("search.html")){
+				window.open(document.referrer,"_self")
+			}
 		} else {
-			window.open("/index.html","_self")
-		}
-	}
-	var keel = "";
-	function muudaKeelt(keel){
-		if (keel != "et"){
-			hangiSonad(lauluNimi + "_" + keel)
-		} else {
-			hangiSonad(lauluNimi)
+			window.open("/search.html","_self")
 		}
 	}
 
-function prindi(){
-	window.print();
-}
-function esitlus(){
-	window.open("/esitlus.html?laul=" + lauluNimi + "&lang=" + keel,"_self")
-}
 
+	(function () {
+    var lyrics = document.getElementById('lyrics');
+    var STEP = 2, MIN = 15, MAX = 29;
+    var size = parseInt(localStorage.getItem('vl-lyrics-size'), 10) || 19;
 
+    function apply() {
+      size = Math.max(MIN, Math.min(MAX, size));
+      lyrics.style.setProperty('--lyrics-size', size + 'px');
+      localStorage.setItem('vl-lyrics-size', size);
+    }
+    apply();
+    document.getElementById('size-up').addEventListener('click', function () { size += STEP; apply(); });
+    document.getElementById('size-down').addEventListener('click', function () { size -= STEP; apply(); });
+  })();
 
+	//function esitlus(){
+	//	window.open("/esitlus.html?laul=" + lauluNimi + "&lang=" + keel,"_self")
+	//}
 
 </script>
 
 
 
 
-<div class="footer noPrint">
-  <a href="/meist.html" class="footerLink noPrint">Meist</a>
-  <a href="/toeta.html" class="footerLink noPrint">Toeta</a>
-  <a href="/kontakt.html" class="footerLink noPrint">Kontakt</a>
-  <a href="/teemad.html" class="footerLink noPrint">Temaatiline jaotus</a>
-  <a href="/panusta.html" class="footerLink noPrint">Panusta</a>
-  <a href="/tingimused.html" class="footerLink noPrint">Kasutustingimused</a>
-</div>
+<footer class="site-footer noprint">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
+	<a href="kontakt.html" class="footerLink">Kontakt</a>
+	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  </div>
+</footer>
 
 
 

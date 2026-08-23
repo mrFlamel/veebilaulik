@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Veebilaulik</title>
 <link rel="icon" type="image/x-icon" href="favicon.webp">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/styles.css">
 <script src="tools.js"></script>
 <script src="lib/papaparse.min.js"></script>
-<meta charset="UTF-8">
 </head>
 <body>
 
 
-<div class="header">
-  <a href="index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" onsubmit='event.preventDefault(); vahetaLk("1");'>
-  		<div class="embed-submit-field">
-  			<input id="topbarOtsimisVali" type="text" placeholder="Otsi laulu pealkirja, autorit, numbrit">
-  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
-  		</div>
-  </form>
-</div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Veebi<em>laulik</em></a>
+    <nav class="main-nav">
+      <a href="index.html">Avaleht</a>
+      <a href="search.html" aria-current="page">Laulud</a>
+      <a href="panusta.html">Panusta</a>
+    </nav>
+  </div>
+</header>
 
 
-<div id="otsinguContainer">
-	<h1 style="text-align: left;">Otsingu tulemus:</h1>
+<main class="wrap">
+
+  <section class="section" style="padding-top:28px;">
+    <form class="search-field" role="search" onsubmit="event.preventDefault(); vahetaLk('1')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search-input" type="search" placeholder="Otsi pealkirja, sõnade või numbri järgi…" autocomplete="off">
+    </form>
+
+    <div class="tag-row" style="margin-top:16px;">
+      <button class="tag is-active" onclick="uusTag(this.id)" id="kõik" type="button">Kõik</button>
+      <button class="tag" onclick="uusTag(this.id)" id="Looja" type="button">Looja</button>
+      <button class="tag" onclick="uusTag(this.id)" id="Suurim armastus" type="button">Suurim armastus</button>
+      <button class="tag" onclick="uusTag(this.id)" id="Alati lähedal" type="button">Alati lähedal</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Püha Kuningas" type="button">Püha Kuningas</button>
+      <button class="tag" onclick="uusTag(this.id)" id="Advent ja jõulud" type="button">Advent ja jõulud</button>
+      <button class="tag" onclick="uusTag(this.id)" id="Surmast ellu" type="button">Surmast ellu</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Nimi üle kõige" type="button">Nimi üle kõige</button>
+      <button class="tag" onclick="uusTag(this.id)" id="Parim sõber" type="button">Parim sõber</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Püha Vaim" type="button">Püha Vaim</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Palvelaulud" type="button">Palvelaulud</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Tänu ja ülistus" type="button">Tänu ja ülistus</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Taevateel" type="button">Taevateel</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Jumala kaastöölisena" type="button">Jumala kaastöölisena</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Meeleparandus" type="button">Meeleparandus</button>
+	  <button class="tag" onclick="uusTag(this.id)" id="Piibel" type="button">Piibel</button>
+    </div>
+  </section>
+
+  <section class="section">
 
 	<div class="otsinguNupud">
 		<button class="otsinguNupp" onclick='prevNr()'><</button>
@@ -32,13 +61,18 @@
 		<button class="otsinguNupp" onclick='nextNr()'>></button>
 		<button class="otsinguNupp" onclick='lastNr()'>>></button>
 	</div>
+
+
+	
+    <p id="result-count" style="font-size:13px; color:var(--ink-faint); margin:0 0 6px 4px;"></p>
+    <ul class="song-list" id="song-list" aria-live="polite"></ul>
 
 	<div id="otsinguTulemus">
 		<!-- SIIA TULEVAD OTSINGU TULEMUSED -->
 		<!--<div class="otsinguPakkumine">
 			<h2 class="otsitavaPealkiri">Kiida / Praise - Hillsong</h2><a class="otsitavaId">#0123</a>
 		</div>-->
-		Laen tulemusi...
+		<p id="empty-state" class="empty-state">Laen tulemusi....</p>
 	</div>
 
 
@@ -49,19 +83,22 @@
 		<button class="otsinguNupp" onclick='nextNr()'>></button>
 		<button class="otsinguNupp" onclick='lastNr()'>>></button>
 	</div>
+    
 
-</div>
+  </section>
 
-<!-- EMPTY SPACE FILLER -->
-<div style="height:100%" id="spaceFiller"></div>
-<div class="footer">
-  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
-  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+</main>
+
+
+
+
+<footer class="site-footer">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
   <a href="panusta.html" class="footerLink">Panusta</a>
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
-  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
-</div>
+	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  </div>
+</footer>
 
 
 <script>
@@ -103,9 +140,36 @@ function lastNr(){
 	vahetaLk(parseInt(document.getElementsByClassName("otsinguNupp")[2].innerText.substring(1)));
 }
 
-document.getElementById("topbarOtsimisVali").value = findGetParameter("searchTerm").replace(/\+/g, '%20');
+
+var currentTag = "";
+if (!findGetParameter("tag")){
+	changeGetParameter("tag", "kõik");
+	currentTag = "kõik";
+} else {
+	for (i of document.getElementsByClassName("tag")){
+		if (i.classList.contains("is-active")){
+			i.classList.remove("is-active")
+		}
+	}
+	document.getElementById(findGetParameter("tag")).classList.add("is-active")
+	currentTag = findGetParameter("tag");
+}
+function uusTag(id){
+	for (i of document.getElementsByClassName("tag")){
+		if (i.classList.contains("is-active")){
+			i.classList.remove("is-active")
+		}
+	}
+	document.getElementById(id).classList.add("is-active");
+	changeGetParameter("tag", id);
+	currentTag = id;
+	vahetaLk(1);
+}
 
 
+
+
+document.getElementById("search-input").value = (findGetParameter("searchTerm") ?? "").replace(/\+/g, '%20');
 /*OTSIMINE TOIMUB SIIN*/
 var globalSongIndex = []
 getSongIndex().then(songIndex => {
@@ -113,24 +177,41 @@ getSongIndex().then(songIndex => {
 	otsi()
 })
 
+
 function otsi(){
 	var results = [];
-	const toSearch = document.getElementById("topbarOtsimisVali").value.toLowerCase().replace(/\+/g, '%20')
+	const toSearch = document.getElementById("search-input").value.toLowerCase().replace(/\+/g, '%20')
 	changeGetParameter("searchTerm", toSearch);
 	
+	var tagSortedList = [];
+	if (currentTag == "kõik"){
+		tagSortedList = globalSongIndex;
+	} else {
+		tagSortedList = globalSongIndex.filter(obj => obj.teemad.split("/").includes(currentTag))
+	}
 
-	for(var i=0; i<globalSongIndex.length; i++) {
-	  for(key in globalSongIndex[i]) {
-	    if(globalSongIndex[i][key].toLowerCase().indexOf(toSearch)!=-1) {
-	    	if (results.some(e => e.fail === globalSongIndex[i].fail)){} else {
-	    		results.push(globalSongIndex[i]);
-	    	}
-	    }
+	for(var i=0; i<tagSortedList.length; i++) {
+	  for(key in tagSortedList[i]) {
+		if (key=="teemad"){continue} // Teemad sorditi juba eelnevalt ära...
+		if (toSearch.endsWith("*")){ // PEALKIRJA ALGUSE JÄRGI OTSING
+			if(tagSortedList[i]["pealkiri"].toLowerCase().startsWith(toSearch.slice(0,-1))) {
+				if (results.some(e => e.fail === tagSortedList[i].fail)){} else {
+					results.push(tagSortedList[i]);
+				}
+			}
+		} else { // TAVAOTSING
+			if(tagSortedList[i][key].toLowerCase().indexOf(toSearch)!=-1) {
+				if (results.some(e => e.fail === tagSortedList[i].fail)){} else {
+					results.push(tagSortedList[i]);
+				}
+			}
+		}
 	  }
 	}
 
 	if(results.length > 0){
 		document.getElementById("otsinguTulemus").innerHTML = "";
+		results.sort(function(a, b) {return (a.pealkiri < b.pealkiri) ? -1 : (a.pealkiri > b.pealkiri) ? 1 : 0;}); // Sorteeri tulemus tähestikulises järjekorras
 	} else {
 		document.getElementById("otsinguTulemus").innerHTML = "Ei õnnestunud ühtegi vastet leida.";
 	}
@@ -143,6 +224,7 @@ function otsi(){
 	document.getElementsByClassName("otsinguNupp")[7].innerText = lkArv;
 
 	if (results.length > (currentPage-1) * lkTulemusteArv){
+
 		algus = (currentPage-1) * lkTulemusteArv;
 
 		if(algus+lkTulemusteArv > results.length){
@@ -155,18 +237,22 @@ function otsi(){
 			}
 		}
 	}
+
 }
 
 function looOtsitavaPakkumine(looNumber, songIndex){
-	var container = document.createElement("div");
+	var container = document.createElement("a");
 	container.classList.add("otsinguPakkumine");
-	container.onclick = function(){window.open("laulud/" + songIndex[looNumber].fail + ".html", "_self")};
+	//container.onclick = function(){window.open("laulud/" + songIndex[looNumber].fail + ".html", "_self")};
+	container.href = "laulud/" + songIndex[looNumber].fail + ".html";
+	container.style = "text-decoration-line:none;"
 	var pealkiri = ""
-	if (songIndex[looNumber].orgpealkiri){
-		pealkiri = songIndex[looNumber].pealkiri + " / " + songIndex[looNumber].orgpealkiri + " - " + songIndex[looNumber].viisi_autor
-	} else {
-		pealkiri = songIndex[looNumber].pealkiri + " - " + songIndex[looNumber].viisi_autor
-	}
+	//if (songIndex[looNumber].orgpealkiri){
+	//	pealkiri = songIndex[looNumber].pealkiri + " / " + songIndex[looNumber].orgpealkiri + " - " + songIndex[looNumber].viisi_autor
+	//} else {
+	//	pealkiri = songIndex[looNumber].pealkiri + " - " + songIndex[looNumber].viisi_autor
+	//}
+	pealkiri = songIndex[looNumber].pealkiri;
 	container.innerHTML = '<h2 class="otsitavaPealkiri">' + pealkiri +'</h2><a class="otsitavaId">'+ songIndex[looNumber].id +'</a>'
 	document.getElementById("otsinguTulemus").appendChild(container);
 }

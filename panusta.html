@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html id="avaleht">
 <head>
-<title>Veebilaulik</title>
-<link rel="icon" type="image/x-icon" href="favicon.webp">
-<link rel="stylesheet" href="style.css">
-<script src="lib/papaparse.min.js"></script>
-<script src="tools.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js"></script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panusta — Veebilaulik</title>
+<link rel="icon" type="image/x-icon" href="favicon.webp">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<div class="header">
-  <a href="index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" action="search.html" method="get">
-  		<div class="embed-submit-field">
-  			<input id="topbarOtsimisVali" type="text" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
-  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
-  		</div>
-  </form>
-</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Veebi<em>laulik</em></a>
+    <nav class="main-nav">
+      <a href="index.html">Avaleht</a>
+      <a href="search.html">Laulud</a>
+      <a href="panusta.html" aria-current="page">Panusta</a>
+    </nav>
+  </div>
+</header>
 
 
-<div class="tekstJuhend">
-<h1>Kuidas panustada?</h1><br>
 
-<h3>Panustamiseks on mitu erinevat võimalust:</h3>
-1. Lisades laule.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Laulude lisamise reeglid:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1. Laulud peavad olema kristlikud.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;2. Laulud ei tohi levitada valeõpetust. Veebilaulik lähtub õpetuslikel alustel Vanast ja Uuest Testamendist ning neid seletavatest Apostlikust, Nikaia ja Athanasiuse usutunnistusest. Kui leitakse mõnest laulust väärõpetust (ka peale saidile lisamist), siis kuuluvad need laulud eemaldamisele ja neid ei ole enam võimalik uuesti lisada.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;3. Igal laulul peaks olema ühtemoodi mõistetavad sõnad ja viis. (St laule on võimalik lauldes taasesitada sama viisi ja sõnadega.)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;4. Laul peaks olema eesti keeles (välja arvatud juhul, kui eestikeelne versioon on juba Veebilaulikus olemas).<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://forms.gle/LwL9EdB9SSELDKpEA">Laule saab lisada siin.</a><br>
-<br>
-<br>
-2. Parandades koodivigu.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Veebilauliku kood on üleval ja muudetav <a href="https://github.com/mrflamel/veebilaulik">Github'is</a>. Täpsemad panustamise reeglid on leitavad sealt.
-<br>
-<br>
-<br>
+<main class="wrap">
+  <section class="section" style="padding-top:36px; border-top:none;">
+    <h1 class="page-title">Kuidas panustada?</h1>
+    <p class="lead">Veebilauliku töösse panustamiseks on mitu erinevat võimalust:</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">1. Lisa laule.</h2>
+    <div class="prose">
+      <!--<p><strong>Lauljale:</strong> suur, selge tekst, mida on mugav telefonist lugeda —
+        ka siis, kui käes on veel noodivihik või mikrofon.</p>
+      <p><strong>Laulujuhile:</strong> iga laulu juures eraldi akordileht koos
+        transponeerimise ja prindivaatega, ning vajadusel ka noodid.</p>-->
+      <p>
+        <a href="https://forms.gle/LwL9EdB9SSELDKpEA">Laule saab lisada siin.</a><br>
+      </p>
+      <p>
+        Laulude lisamise reeglid:<br>
+        1. Laulud peavad olema kristlikud.<br>
+        2. Laulud ei tohi levitada valeõpetust. Veebilaulik lähtub õpetuslikel alustel Vanast ja Uuest Testamendist ning neid seletavatest Apostlikust, Nikaia ja Athanasiuse usutunnistusest. Kui leitakse mõnest laulust väärõpetust (ka peale saidile lisamist), siis kuuluvad need laulud eemaldamisele ja neid ei ole enam võimalik uuesti lisada.<br>
+        3. Igal laulul peavad olema ühtemoodi mõistetavad sõnad ja viis. (St laule on võimalik taasesitada lauldes sama viisi ja sõnadega.)<br>
+        4. Laulud peavad olema eesti keeles ja igal laulul peab olema sõnadega versioon ning akordidega versioon.<br>
+        <br>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">2. Paranda koodivigu.</h2>
+    <div class="prose">
+      <p>Veebilauliku kood on avalik ja muudetav <a href="https://github.com/mrflamel/veebilaulik">Github'is</a>. Täpsemad panustamise reeglid on leitavad sealt.</p>
+    </div>
+  </section>
+
+</main>
 
 
-<br>
-<br>
-</div>
-
-
-<!-- EMPTY SPACE FILLER -->
-<div style="height:100%"></div>
-<div class="footer">
-  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
-  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+<footer class="site-footer">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
   <a href="panusta.html" class="footerLink">Panusta</a>
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
-  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
-</div>
+	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  </div>
+</footer>
 
 
 </body>

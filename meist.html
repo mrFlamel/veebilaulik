@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html id="avaleht">
 <head>
-<title>Veebilaulik</title>
-<link rel="icon" type="image/x-icon" href="favicon.webp">
-<link rel="stylesheet" href="style.css">
-<script src="lib/papaparse.min.js"></script>
-<script src="tools.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs/dist/pptxgen.bundle.js"></script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meist — Veebilaulik</title>
+<link rel="icon" type="image/x-icon" href="favicon.webp">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<div class="header">
-  <a href="index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" action="search.html" method="get">
-  		<div class="embed-submit-field">
-  			<input id="topbarOtsimisVali" type="text" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
-  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
-  		</div>
-  </form>
-</div>
 
 
-<div class="tekstJuhend">
-<h1>Mis ja kes on Veebilaulik?</h1><br>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Veebi<em>laulik</em></a>
+    <nav class="main-nav">
+      <a href="index.html">Avaleht</a>
+      <a href="search.html">Laulud</a>
+      <a href="panusta.html">Panusta</a>
+    </nav>
+  </div>
+</header>
 
-Veebilaulik on 18. juulil 2025 alguse saanud projekt, mille eesmärk on koondada eestikeelseid kristlike laule. <br>
-<br>
-Projekt on inspireeritud https://ylistus.tyrikogudus.ee/ veebilehest ning püüab sellega võrreldes lihtsustada laulude kättesaadavust ja kasutatavust, tehes muuhulgas parandusi kasutajaliidesesse.
 
-</div>
+<main class="wrap">
+
+  <section class="section" style="padding-top:36px; border-top:none;">
+    <h1 class="page-title">Mis on Veebilaulik?</h1>
+    <div class="prose">
+      <p>Veebilaulik on 18. juulil 2025 alguse saanud projekt, mille eesmärk on koondada ühele platvormile eestikeelseid kristlike laule. </p>
+      <p>Projekt on inspireeritud https://ylistus.tyrikogudus.ee/ veebilehest ning püüab sellega võrreldes lihtsustada laulude kättesaadavust ja kasutatavust, tehes muuhulgas parandusi kasutajaliidesesse.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Kontakt</h2>
+    <div class="prose">
+      <p>Jakob Luhamets<br>
+      jakob.luhamets ättt gmail.com</p>
+    </div>
+  </section>
+
+</main>
 
 
-<!-- EMPTY SPACE FILLER -->
-<div style="height:100%"></div>
-<div class="footer">
-  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
-  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+<footer class="site-footer">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
   <a href="panusta.html" class="footerLink">Panusta</a>
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
-  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
-</div>
+	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  </div>
+</footer>
 
 
 </body>

@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html id="avaleht">
 <head>
-<title>Veebilaulik</title>
-<link rel="icon" type="image/x-icon" href="favicon.webp">
-<link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siin ei ole Veebilaulikut...</title>
+<link rel="icon" type="image/x-icon" href="favicon.webp">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<div class="header">
-  <a href="index.html" class="logo">Veebilaulik</a>
-  <form id="topbarSearch" action="search.html" method="get">
-  		<div class="embed-submit-field">
-  			<input id="topbarOtsimisVali" type="text" name="searchTerm" placeholder="Otsi laulu pealkirja, autorit, numbrit">
-  			<button id="topbarOtsimisKinnitus" type="submit" value="Submit">Otsi</button>
-  		</div>
-  </form>
-</div>
-<!-- EMPTY SPACE FILLER -->
-<div style="height:30%"></div>
 
-<h1>HTTP ERROR 404 -<br><br> "Ma olen eksinud nagu kadunud lammas." Ps 119:176a</h1><br>
-<br>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Veebi<em>laulik</em></a>
+    <nav class="main-nav">
+      <a href="index.html" aria-current="page">Avaleht</a>
+      <a href="search.html">Laulud</a>
+      <a href="panusta.html">Panusta</a>
+    </nav>
+  </div>
+</header>
 
-<!-- EMPTY SPACE FILLER -->
-<div style="height:100%"></div>
-<div class="footer">
-  <a href="kuidas_kasutada.html" class="footerLink">Kuidas kasutada</a>
-  <a href="teemad.html" class="footerLink">Temaatiline jaotus</a>
+
+
+<main class="wrap">
+
+  <section class="section" style="padding-top:36px; border-top:none;">
+    <h1 class="page-title">HTTP ERROR 404</h1>
+    <div class="prose">
+      <p>"Ma olen eksinud nagu kadunud lammas." Ps 119:176a </p>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
   <a href="panusta.html" class="footerLink">Panusta</a>
-  <a href="meist.html" class="footerLink">Meist</a>
-  <a href="kontakt.html" class="footerLink">Kontakt</a>
-  <a href="tingimused.html" class="footerLink">Kasutustingimused</a>
-</div>
+	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+  </div>
+</footer>
 
 
 </body>

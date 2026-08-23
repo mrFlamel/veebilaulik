@@ -1,7 +1,7 @@
 import os
 import csv
 
-with open('../index.csv', newline='') as csvfile:
+with open('../nimekiri.csv', newline='') as csvfile:
     reader = csv.reader(csvfile)
     
     # Skip header (line 0)
@@ -9,8 +9,8 @@ with open('../index.csv', newline='') as csvfile:
 
     target_paths = []
     for row in reader:
-        if len(row) > 8:  # Ensure the row has at least 6 elements
-            target_paths.append("../laulud/" + str(row[8]) + ".html")
+        if len(row) > 6:  # Ensure the row has at least 6 elements
+            target_paths.append("../laulud/" + str(row[6]) + ".html")
     
     target_paths.append("laul.html")
 
