@@ -7,6 +7,7 @@
 <link rel="icon" type="image/x-icon" href="favicon.webp">
 <link rel="stylesheet" href="assets/styles.css">
 <script src="tools.js"></script>
+<script src="lib/papaparse.min.js"></script>
 </head>
 <body>
 
@@ -30,7 +31,7 @@
 		<img id="veebilaulikLogo" src="banner.svg" draggable="false">
 		<form class="search-field" action="search.html" method="get">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      		<input id="otsimisVali" name="searchTerm" type="text" placeholder="Otsi laulu pealkirja, autorit, numbrit..." autocomplete="off">
+      		<input id="otsimisVali" name="searchTerm" type="text" placeholder="Otsi laulu pealkirja, autori või numbri järgi..." autocomplete="off">
 		</form>
 	</section>
 
@@ -83,6 +84,14 @@
 	<a href="tingimused.html" class="footerLink">Tingimused</a>
   </div>
 </footer>
+
+
+<script>
+  getSongIndex().then(songIndex => {
+    let globalSongIndex = songIndex;
+    document.getElementById("otsimisVali").placeholder = "Otsi " + globalSongIndex.length + " laulu seast pealkirja, autori või numbri järgi..."
+  })
+</script>
 
 <!--
 <div style="height:100%"></div>
