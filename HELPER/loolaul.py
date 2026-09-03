@@ -19,7 +19,7 @@ new_row.append(input("Teemad (eraldatud /-ga): "))
 
 
 
-with open('../index.csv', 'a', newline='') as file:
+with open('../nimekiri.csv', 'a', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(new_row)
 
