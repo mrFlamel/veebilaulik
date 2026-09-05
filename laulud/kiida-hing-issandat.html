@@ -113,8 +113,13 @@ suur on Su ustavus mu vastu.</p>
 				lisaLauluInfo(songIndex[i].teemad.replace(/\//g, ' · '), "song-meta");
 
 				// MATERJALID
-				lisaLauluInfo('<span class="resource-label">Materjalid</span><a target="_blank" href="/akordifailid/' + songIndex[i].fail + "-" + songIndex[i].helistik + '.pdf">Akordid <span>' + songIndex[i].helistik + '</span> <i>→</i></a>', "resource-bar")
-				
+				var lauluInfot = ""
+				lauluInfot += '<span class="resource-label">Materjalid</span>'
+				lauluInfot += '<a target="_blank" href="/akordifailid/' + songIndex[i].fail + "-" + songIndex[i].helistik + '.pdf">Akordid <span>' + songIndex[i].helistik + '</span> <i>→</i></a>'
+				if (songIndex[i].salvestus){
+					lauluInfot += '<a target="_blank" href="' + songIndex[i].salvestus + '">Salvestus <i>→</i></a>'
+				}
+				lisaLauluInfo(lauluInfot, "resource-bar")
 				hangiSonad(lauluNimi)
 
 
@@ -222,7 +227,7 @@ suur on Su ustavus mu vastu.</p>
   <div class="wrap">
 	<a href="meist.html" class="footerLink">Meist</a>
 	<a href="kontakt.html" class="footerLink">Kontakt</a>
-	<a href="tingimused.html" class="footerLink">Kasutustingimused</a>
+	<a href="tingimused.html" class="footerLink">Tingimused</a>
   </div>
 </footer>
 
