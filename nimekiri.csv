@@ -1,4 +1,4 @@
-id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teemad,salvestus,
+id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teemad,salvestus
 0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,Jakob Luhamets,suur-issand-sa,A-duur,Tänu ja ülistus,,
 0002,Ekseldes pimedas,I thank God,Maverick City Music,,Jakob Luhamets,ekseldes-pimedas,G-duur,Tänu ja ülistus/Surmast ellu,,
 0003,"Jeesus, Jeesus",,Joonas Alvre,,,jeesus-jeesus,E-duur,Nimi üle kõige/Tänu ja ülistus,https://www.youtube.com/watch?v=GR0DFKJYPG4,
@@ -32,3 +32,9 @@ id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teema
 0031,Õnn on olla Su lähedal,Herrä kädelläsi,Pekka Simojoki,Anna-Mari Kaskinen,Tundmatu,onn-on-olla-su-lahedal,D-moll,Alati lähedal/Tänu ja ülistus,,
 0032,"Kiida, hing, Issandat","10,000 Reasons / Bless the Lord","Jonas Myrin, Matt Redman",,Tundmatu,kiida-hing-issandat,D-duur,Tänu ja ülistus,https://www.tv7.ee/arhiiv/arkame-2025/koguduste-uhisteenistus_p106385/?t=2350,
 0033,Taevamiljonär / Kord kaugel võõral maal,Guldgrävarsången,Ameerika rahvaviis,Fredrik Arvid Bloom,Tundmatu,kord-kaugel-vooral-maal,C-duur,Surmast ellu/Tänu ja ülistus/Piibel,https://www.robirohi.ee/mus/RRR1-04_Taevamiljonar.mp3,
+0034,Arm nii võrratu,,"Raili Lilleorg, Carlos Roos, Sam Deacon, Rando Lilleorg",Raili Lilleorg,,arm-nii-vorratu,C-duur,Suurim armastus/Surmast ellu/Tänu ja ülistus,https://youtu.be/gIVAlL5eEoE
+0035,Kui ma ainult vaatan,,Raili Lilleorg,,,kui-ma-ainult-vaatan,G-duur,Looja/Tänu ja ülistus,https://youtu.be/X2YMIhSGnNg
+0036,Seikluse laul,,Joonas Alvre,,,seikluse-laul,C-duur,Jumala kaastöölisena/Taevateel,https://youtu.be/w7Dnk8uHCpM
+0037,Tops,,Anonüümsed Leviidid,,,tops,G-duur,Püha Vaim/Palvelaulud/Taevateel/Jumala kaastöölisena,https://youtu.be/5BoCPflwuu8
+0038,Olen matkal ma,,Tundmatu,,,olen-matkal-ma,E-duur,Taevateel,https://www.robirohi.ee/mus/RRR1-16_Olen_matkal_ma.mp3
+0039,"Oo tule nüüd, Immaanuel","Veni, veni, Emmanuel",Ladina hümn,,Tarmo Uustalu,oo-tule-nuud-immaanuel,E-moll,Advent ja jõulud/Palvelaulud/Piibel,https://youtu.be/OuxWq_2Jdb0
