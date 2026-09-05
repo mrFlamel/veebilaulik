@@ -169,7 +169,7 @@ function uusTag(id){
 
 
 
-document.getElementById("search-input").value = (findGetParameter("searchTerm") ?? "").replace(/\+/g, '%20');
+document.getElementById("search-input").value = (findGetParameter("searchTerm") ?? "").replace(/\+/g, ' ');
 /*OTSIMINE TOIMUB SIIN*/
 var globalSongIndex = []
 getSongIndex().then(songIndex => {
@@ -180,7 +180,7 @@ getSongIndex().then(songIndex => {
 
 function otsi(){
 	var results = [];
-	const toSearch = document.getElementById("search-input").value.toLowerCase().replace(/\+/g, '%20')
+	const toSearch = document.getElementById("search-input").value.toLowerCase()
 	changeGetParameter("searchTerm", toSearch);
 	
 	var tagSortedList = [];
