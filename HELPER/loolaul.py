@@ -16,6 +16,7 @@ new_row.append(input("Tõlke autor: "))
 new_row.append(input("Faili nimi: "))
 new_row.append(input("Helistik: "))
 new_row.append(input("Teemad (eraldatud /-ga): "))
+new_row.append(input("Salvestuse URL: "))
 
 
 

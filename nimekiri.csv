@@ -1,29 +1,29 @@
-id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teemad
+id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teemad,salvestus
 0001,"Suur Issand, Sa!",Great are you Lord,All Sons & Daughters,,Jakob Luhamets,suur-issand-sa,A-duur,Tänu ja ülistus,
 0002,Ekseldes pimedas,I thank God,Maverick City Music,,Jakob Luhamets,ekseldes-pimedas,G-duur,Tänu ja ülistus/Surmast ellu,
-0003,"Jeesus, Jeesus",,Joonas Alvre,,,jeesus-jeesus,E-duur,Nimi üle kõige/Tänu ja ülistus,
-0004,Palju põhjust laulmiseks,,Raili Lilleorg,,,palju-pohjust-laulmiseks,G-duur,Tänu ja ülistus,
+0003,"Jeesus, Jeesus",,Joonas Alvre,,,jeesus-jeesus,E-duur,Nimi üle kõige/Tänu ja ülistus,https://www.youtube.com/watch?v=GR0DFKJYPG4
+0004,Palju põhjust laulmiseks,,Raili Lilleorg,,,palju-pohjust-laulmiseks,G-duur,Tänu ja ülistus,https://www.youtube.com/watch?v=0agm-MhFDqg
 0005,Tänu,Gratitude,Brandon Lake,,Jakob Luhamets,tanu,E-duur,Tänu ja ülistus,
-0006,Kõrgele,,Pille-Riin Rego,,,korgele,D-duur,Tänu ja ülistus,
-0007,Hauad aasaks,Graves into gardens,Elevation Worship,,Mai Liivrand,hauad-aasaks,C-duur,Suurim armastus/Tänu ja ülistus,
-0008,"Tõde, mis vabastab",,Arlo Orlovski ja Triin Orlovski,,,tode-mis-vabastab,E-duur,Surmast ellu/Tänu ja ülistus,
-0009,Nii lähedale,,Joonas Alvre,"Joonas Alvre, Andrus Kasepuu",,nii-lahedale,D-duur,Alati lähedal/Palvelaulud,
-0010,Su rahvas,,Christiana Lainde,,,su-rahvas,C-duur,Palvelaulud/Jumala kaastöölisena,
-0011,Kristlase tee,,Daniel Reinaru,Helle Reinaru,,kristlase-tee,A-duur,Taevateel/Jumala kaastöölisena,
+0006,Kõrgele,,Pille-Riin Rego,,,korgele,D-duur,Tänu ja ülistus,https://www.youtube.com/watch?v=56X2uSlshzE
+0007,Hauad aasaks,Graves into gardens,Elevation Worship,,Mai Liivrand,hauad-aasaks,C-duur,Suurim armastus/Tänu ja ülistus,https://www.youtube.com/watch?v=xED-Ie5L0UM
+0008,"Tõde, mis vabastab",,Arlo Orlovski ja Triin Orlovski,,,tode-mis-vabastab,E-duur,Surmast ellu/Tänu ja ülistus,https://www.youtube.com/watch?v=LrvQDvGsKbM
+0009,Nii lähedale,,Joonas Alvre,"Joonas Alvre, Andrus Kasepuu",,nii-lahedale,D-duur,Alati lähedal/Palvelaulud,https://www.youtube.com/watch?v=RGftIPWiD2I
+0010,Su rahvas,,Christiana Lainde,,,su-rahvas,C-duur,Palvelaulud/Jumala kaastöölisena,https://www.youtube.com/watch?v=0Tu_756yCjg
+0011,Kristlase tee,,Daniel Reinaru,Helle Reinaru,,kristlase-tee,A-duur,Taevateel/Jumala kaastöölisena,https://www.youtube.com/watch?v=TBviY8bWPwY
 0012,"Kõik, kellel eluõhku on",Kol haneshama,Jamie Hilsden,Lior Sperandeo,Joonas Alvre,koik-kellel-eluohku-on,D-duur,Looja/Tänu ja ülistus,
 0013,Tal laulan ma,That's Who I praise,Brandon Lake,,Jakob Luhamets,tal-laulan-ma,B-duur,Surmast ellu/Tänu ja ülistus/Piibel,
-0014,Metsik armastus,Reckless love,"Cory Asbury, Caleb Culver, Ran Jackson",,"Merlin Kontus, Hanna Rebeka Veermäe",metsik-armastus,A-duur,Suurim armastus/Tänu ja ülistus,
-0015,Ma võite näen,See a victory,"Ben Fielding, Chris Brown, Jason Ingram, Steven Furtick",,Joonas Alvre,ma-voite-naen,D-duur,Alati lähedal/Taevateel,
-0016,Ei ole paremat sõpra,,"Matteus Elbrecht, Imre Kuller",,,ei-ole-paremat-sopra,D-duur,Parim sõber/Tänu ja ülistus,
-0017,Ma tõstan silmad,,"Joonas Alvre, Raili Lilleorg",,,ma-tostan-silmad,D-duur,Tänu ja ülistus,
+0014,Metsik armastus,Reckless love,"Cory Asbury, Caleb Culver, Ran Jackson",,"Merlin Kontus, Hanna Rebeka Veermäe",metsik-armastus,A-duur,Suurim armastus/Tänu ja ülistus,https://www.youtube.com/watch?v=dZx6CEpIZsc
+0015,Ma võite näen,See a victory,"Ben Fielding, Chris Brown, Jason Ingram, Steven Furtick",,Joonas Alvre,ma-voite-naen,D-duur,Alati lähedal/Taevateel,https://www.youtube.com/watch?v=ZPRMhcYSWdU
+0016,Ei ole paremat sõpra,,"Matteus Elbrecht, Imre Kuller",,,ei-ole-paremat-sopra,D-duur,Parim sõber/Tänu ja ülistus,https://www.youtube.com/watch?v=wJptF50Fy6E
+0017,Ma tõstan silmad,,"Joonas Alvre, Raili Lilleorg",,,ma-tostan-silmad,D-duur,Tänu ja ülistus,https://www.youtube.com/watch?v=bzxeGTWJeBg
 0018,Austust väärt,Awesome God,Rich Mullins,,Anne Tuovinen,austust-vaart,F♯-moll,Looja,
-0019,Hoia mind,,Timo Lige,,,hoia-mind,C-duur,Palvelaulud/Taevateel,
-0020,Palveränduri laul,Pyhiinvaeltajan laulu,Pekka Simojoki,,Anne Tuovinen,palveranduri-laul,G-duur,Jumala kaastöölisena/Taevateel/Tänu ja ülistus,
+0019,Hoia mind,,Timo Lige,,,hoia-mind,C-duur,Palvelaulud/Taevateel,https://youtu.be/y74VqL0TOL8
+0020,Palveränduri laul,Pyhiinvaeltajan laulu,Pekka Simojoki,,Anne Tuovinen,palveranduri-laul,G-duur,Jumala kaastöölisena/Taevateel/Tänu ja ülistus,https://youtu.be/Uds5MtcA8ag
 0021,Jeesus minu kodus,Jesus in my house,Judy Bailey,,Anne Tuovinen,jeesus-minu-kodus,D-duur,Parim sõber/Meeleparandus,
 0022,Me Jumal on armastus,Our God is love,Joel Houston ja Scott Ligertwood,,Hanna Hark,me-jumal-on-armastus,C-duur,Suurim armastus/Surmast ellu/Tänu ja ülistus,
-0023,Minu õnn,,Raili Lilleorg ja Martin Kremenetski,,,minu-onn,G-duur,Suurim armastus/Alati lähedal/Tänu ja ülistus,
-0024,Üle kõigi,Above all,Paul Baloche ja Lenny LeBlanc,,Mirja-Lenna Lokuta,ule-koigi,G-duur,Surmast ellu/Nimi üle kõige,
-0025,"Kõik, mis Sa teed, on õiglane",,Martin Kremenetski,,,koik-mis-sa-teed-on-oiglane,A-duur,Alati lähedal/Piibel,
-0026,Püha,,Raili Lilleorg,,,puha,G-duur,Püha Kuningas/Surmast ellu/Tänu ja ülistus,
+0023,Minu õnn,,Raili Lilleorg ja Martin Kremenetski,,,minu-onn,G-duur,Suurim armastus/Alati lähedal/Tänu ja ülistus,https://youtu.be/sLKRnGFqygQ
+0024,Üle kõigi,Above all,Paul Baloche ja Lenny LeBlanc,,Mirja-Lenna Lokuta,ule-koigi,G-duur,Surmast ellu/Nimi üle kõige,https://youtu.be/wE_3ZNQE5dk
+0025,"Kõik, mis Sa teed, on õiglane",,Martin Kremenetski,,,koik-mis-sa-teed-on-oiglane,A-duur,Alati lähedal/Piibel,https://youtu.be/eChS4EQ6kzY
+0026,Püha,,Raili Lilleorg,,,puha,G-duur,Püha Kuningas/Surmast ellu/Tänu ja ülistus,https://youtu.be/IFhm-yMvgz0
 0027,Sa kõndima mind kutsud,Oceans / Where Feet May Fail,"Matt Crocker, Joel Houston, Salomon Ligthelm",,"Andrus, Pille-Riin, Meelike",sa-kondima-mind-kutsud,D-duur,Alati lähedal/Püha Vaim/Palvelaulud/Taevateel/Jumala kaastöölisena/Piibel,
-0028,Vähem mind,,Timo Lige,,,vahem-mind,C-duur,Palvelaulud/Meeleparandus
+0028,Vähem mind,,Timo Lige,,,vahem-mind,C-duur,Palvelaulud/Meeleparandus,https://youtu.be/6QPSjBEHusg
