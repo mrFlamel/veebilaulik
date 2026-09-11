@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veebilaulik</title>
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" type="image/x-icon" href="/favicon.webp">
+<script>const lauluNimi = location.href.split("/").slice(-1)[0].replace(".html", "");</script>
+<script src="/lib/chordsheetjs.min.js"></script>
+<script src="/lib/papaparse.min.js"></script>
+<script src="/tools.js"></script>
+</head>
+<body>
+
+
+<div class="song-topbar noPrint">
+  <div class="wrap">
+    <a class="back-link" onclick="tagasi()">← Tagasi</a>
+    <div class="text-size-control" aria-label="Teksti suurus">
+      <button id="size-down" type="button" aria-label="Väiksem tekst">A−</button>
+      <button id="size-up" type="button" aria-label="Suurem tekst">A+</button>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="wrap" style="max-width: 620px;">
+
+  <header class="song-head">
+    <div class="song-kicker">
+      <span class="song-number"><!--118--></span>
+      <span class="song-meta"><!--Ülistus · Tänu--></span>
+    </div>
+
+    <h1 class="song-title"><!--Suur on Su ustavus--></h1>
+
+    <p class="credits" aria-label="Laulu autorid ja päritolu">
+      <!--<span><b>Sõnad</b> Käbi Lindmets</span>
+      <span><b>Viis</b> Rein Kald</span>
+      <span><b>Tõlge</b> Maria Tamm</span>
+      <span><b>1998</b></span>-->
+    </p>
+  </header>
+
+  <nav class="resource-bar" aria-label="Akordid ja noodid">
+    <!--<span class="resource-label">Materjalid</span>
+    <a href="akordid-118.html">Kitarr <span>G</span> <i>→</i></a>
+    <a href="#">Klaver <span>F</span> <i>→</i></a>
+    <a href="#">Noodid <span>PDF</span> <i>→</i></a>-->
+  </nav>
+
+
+  <div class="lyrics" id="lyrics">
+    <!--<div class="verse">
+      <span class="vnum">1.</span>
+      <p>Suur on Su ustavus, oh mu Jumal,
+iga hommik uueneb Su arm.
+Sa oled kalju, millele ma toetun,
+Sinu käes on kindel minu tee.</p>
+    </div>
+
+    <div class="verse chorus">
+      <span class="vnum">Refrään</span>
+      <p>Suur, suur on Su ustavus,
+hommikust hommikusse uueneb see.
+Kõik, mis mul vaja, oled Sina andnud —
+suur on Su ustavus mu vastu.</p>
+    </div>
+    </div>-->
+  </div>
+
+</main>
+
+
+<!--
+
+<div id="nupuDiv" class="noPrint">
+	<button id="tagasiNupp" class="suurNupp noPrint" onclick="tagasi()">Tagasi</button>
+	<div>
+		<button id="prindiNupp" class="suurNupp noPrint" onclick="prindi()">Prindi</button>
+		<button id="esitluseNupp" class="suurNupp noPrint" onclick="esitlus()">Loo esitlus</button>
+	</div>
+</div>
+-->
+
+<script>
+	getSongIndex().then(songIndex => {
+		for (let i = 0; i < songIndex.length; i++) {
+			if(songIndex[i].fail == lauluNimi){
+				document.title = songIndex[i].pealkiri + " - Veebilaulik"
+
+				if (songIndex[i].orgpealkiri == ""){
+					lisaLauluInfo(songIndex[i].pealkiri, "song-title");
+				} else {
+					lisaLauluInfo(songIndex[i].pealkiri + " <a style='font-weight:normal'>(" + songIndex[i].orgpealkiri + ")</a>", "song-title");
+				}
+				
+				
+				var kelleleViidata = "";
+				if (songIndex[i].sonade_autor == ""){ //<span><b>Sõnad</b> Käbi Lindmets</span>
+					kelleleViidata = kelleleViidata + "<span><b>Viis ja sõnad</b> " + songIndex[i].viisi_autor + "</span>"
+				} else {
+					kelleleViidata = kelleleViidata + "<span><b>Viis</b> " + songIndex[i].viisi_autor + "</span>"
+					kelleleViidata = kelleleViidata + "<span><b>Sõnad</b> " + songIndex[i].sonade_autor + "</span>"
+				}
+				if (songIndex[i].tolke_autor){
+					kelleleViidata = kelleleViidata + "<span><b>Tõlge</b> " + songIndex[i].tolke_autor + "</span>"
+				}
+				lisaLauluInfo(kelleleViidata, "credits")
+				lisaLauluInfo(songIndex[i].id, "song-number");
+				lisaLauluInfo(songIndex[i].teemad.replace(/\//g, ' · '), "song-meta");
+
+				// MATERJALID
+				var lauluInfot = ""
+				lauluInfot += '<span class="resource-label">Materjalid</span>'
+				lauluInfot += '<a target="_blank" href="/akordifailid/' + songIndex[i].fail + "-" + songIndex[i].helistik + '.pdf">Akordid <span>' + songIndex[i].helistik + '</span> <i>→</i></a>'
+				if (songIndex[i].salvestus){
+					lauluInfot += '<a target="_blank" href="' + songIndex[i].salvestus + '">Salvestus <i>→</i></a>'
+				}
+				lisaLauluInfo(lauluInfot, "resource-bar")
+				hangiSonad(lauluNimi)
+
+
+				break
+			}
+    }
+	})
+
+
+	function hangiSonad(lauluNimiInner){
+		fetch("/laulutekstid/" + lauluNimiInner + ".txt")
+		.then(response => {
+			if (!response.ok){
+				document.getElementById("lauluDiv").innerText = "Laulu avamine ebaõnnestus."
+				throw new Error("Laulu avamine ebaõnnestus.")
+			} else {
+				return response.text()
+			}
+		})
+		.then(text => {
+			showLyrics(text)
+		})
+	}
+	
+
+	var song;
+	function showLyrics(text){
+		laul = text.split("\n")
+
+		lõiguPealkiri = "";
+		lõik = "";
+		for (i of laul){
+			if (i==""){continue}
+			if (i.startsWith("[")){
+
+				if (lõiguPealkiri != ""){
+					var sisu = document.createElement("div");
+					if (lõiguPealkiri.startsWith("Refrään")){
+						sisu.classList.add("verse")
+						sisu.classList.add("chorus")
+					} else {
+						sisu.classList.add("verse")
+					}
+					sisu.innerHTML = "<span class='vnum'>" + lõiguPealkiri + "</span><p>" + lõik + "</p>"
+					document.getElementById("lyrics").appendChild(sisu);
+				}
+
+				lõiguPealkiri = i.substring(1, i.length-1)
+				lõik = "";
+				continue;
+			}
+			lõik += i+"\n";
+		}
+
+		var sisu = document.createElement("div");
+		if (lõiguPealkiri.startsWith("Refrään")){
+			sisu.classList.add("verse")
+			sisu.classList.add("chorus")
+		} else {
+			sisu.classList.add("verse")
+		}
+		sisu.innerHTML = "<span class='vnum'>" + lõiguPealkiri + "</span><p>" + lõik + "</p>"
+		document.getElementById("lyrics").appendChild(sisu);
+	}
+
+
+	function tagasi(){
+		if (document.referrer.includes("search.html")){
+			console.log(document.referrer)
+			history.back()
+			if (!window.location.href.includes("search.html")){
+				window.open(document.referrer,"_self")
+			}
+		} else {
+			window.open("/search.html","_self")
+		}
+	}
+
+
+	(function () {
+    var lyrics = document.getElementById('lyrics');
+    var STEP = 2, MIN = 15, MAX = 29;
+    var size = parseInt(localStorage.getItem('vl-lyrics-size'), 10) || 19;
+
+    function apply() {
+      size = Math.max(MIN, Math.min(MAX, size));
+      lyrics.style.setProperty('--lyrics-size', size + 'px');
+      localStorage.setItem('vl-lyrics-size', size);
+    }
+    apply();
+    document.getElementById('size-up').addEventListener('click', function () { size += STEP; apply(); });
+    document.getElementById('size-down').addEventListener('click', function () { size -= STEP; apply(); });
+  })();
+
+	//function esitlus(){
+	//	window.open("/esitlus.html?laul=" + lauluNimi + "&lang=" + keel,"_self")
+	//}
+
+</script>
+
+
+
+
+<footer class="site-footer noprint">
+  <div class="wrap">
+	<a href="meist.html" class="footerLink">Meist</a>
+	<a href="kontakt.html" class="footerLink">Kontakt</a>
+	<a href="tingimused.html" class="footerLink">Tingimused</a>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
