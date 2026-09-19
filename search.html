@@ -200,7 +200,7 @@ function otsi(){
 				}
 			}
 		} else { // TAVAOTSING
-			if(tagSortedList[i][key].toLowerCase().indexOf(toSearch)!=-1) {
+			if(tagSortedList[i][key].toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '').indexOf(toSearch.trim().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, ''))!=-1) {
 				if (results.some(e => e.fail === tagSortedList[i].fail)){} else {
 					results.push(tagSortedList[i]);
 				}
