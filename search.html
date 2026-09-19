@@ -199,6 +199,13 @@ function otsi(){
 					results.push(tagSortedList[i]);
 				}
 			}
+		} else if(isNaN(toSearch) === false && toSearch.trim() != "") {// NUMBRITEGA OTSING
+			console.log("aaaaa")
+			if(tagSortedList[i][key].toLowerCase().startsWith(('0000'+toSearch.trim()).slice(-4))) {
+				if (results.some(e => e.fail === tagSortedList[i].fail)){} else {
+					results.push(tagSortedList[i]);
+				}
+			}
 		} else { // TAVAOTSING
 			if(tagSortedList[i][key].toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '').indexOf(toSearch.trim().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, ''))!=-1) {
 				if (results.some(e => e.fail === tagSortedList[i].fail)){} else {
