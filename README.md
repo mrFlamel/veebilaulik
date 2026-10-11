@@ -5,6 +5,5 @@ Eesti kristlik Veebilaulik (lühidalt Veebilaulik) on eestikeelsete kristlike la
 TEGEMIST ON ARENDUSES OLEVA PROJEKTIGA. KÕIK PANUSED ON OODATUD.
 
 ### Praegused eesmärgid:
-- Lisada funktsionaalsus piltidele ja muusikafailidele.
-- Muuta sait telefoni jaoks kasutatavaks.
-- Jõuda beta versioonini.
+- Tume režiim.
+- Jõuda 100 lauluni.
