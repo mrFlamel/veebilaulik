@@ -260,7 +260,13 @@ function looOtsitavaPakkumine(looNumber, songIndex){
 	//	pealkiri = songIndex[looNumber].pealkiri + " - " + songIndex[looNumber].viisi_autor
 	//}
 	pealkiri = songIndex[looNumber].pealkiri;
-	container.innerHTML = '<h2 class="otsitavaPealkiri">' + pealkiri +'</h2><a class="otsitavaId">'+ songIndex[looNumber].id +'</a>'
+	if (songIndex[looNumber].orgpealkiri){
+		//container.innerHTML = '<h2 class="otsitavaPealkiri">' + pealkiri +' <br>(<i>' + songIndex[looNumber].orgpealkiri + '</i>)</h2><a class="otsitavaId">'+ songIndex[looNumber].id +'</a>'
+		container.innerHTML = '<h2 class="otsitavaPealkiri"><b>' + pealkiri +'</b> </br><i>' + songIndex[looNumber].orgpealkiri + '</i></h2><a class="otsitavaId">'+ songIndex[looNumber].id +'</a>'
+	} else {
+		container.innerHTML = '<h2 class="otsitavaPealkiri"><b>' + pealkiri +'</b></h2><a class="otsitavaId">'+ songIndex[looNumber].id +'</a>'
+	}
+	//container.innerHTML = '<h2 class="otsitavaPealkiri">' + pealkiri +'</h2><a class="otsitavaId">'+ songIndex[looNumber].id +'</a>'
 	document.getElementById("otsinguTulemus").appendChild(container);
 }
 

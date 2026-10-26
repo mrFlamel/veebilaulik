@@ -260,6 +260,8 @@ a{ color: inherit; }
 }
 .otsitavaPealkiri{
 	font-weight: normal;
+  font-size: 1.3em;
+
 }
 @keyframes changeBorder {
 	to {border-color: var(--ink);}
