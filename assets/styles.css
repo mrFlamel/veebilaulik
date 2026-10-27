@@ -392,7 +392,7 @@ a{ color: inherit; }
   flex-wrap: wrap;
   gap: 4px 16px;
   margin: 12px 0 0;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -402,7 +402,7 @@ a{ color: inherit; }
 }
 
 .credits b{
-  color: var(--ink-soft);
+  color: var(--ink);
   font-weight: 500;
 }
 
