@@ -1,4 +1,4 @@
-id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teemad,salvestus,
+id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teemad,salvestus
 0001,"Suur, Issand, Sa!",Great Are You Lord,All Sons & Daughters,,Jakob Luhamets,suur-issand-sa,A-duur,Tänu ja ülistus,,
 0002,Ekseldes pimedas,I Thank God,Maverick City Music,,Jakob Luhamets,ekseldes-pimedas,G-duur,Tänu ja ülistus/Surmast ellu,,
 0003,"Jeesus, Jeesus",,Joonas Alvre,,,jeesus-jeesus,E-duur,Nimi üle kõige/Tänu ja ülistus,https://www.youtube.com/watch?v=GR0DFKJYPG4,
@@ -61,3 +61,4 @@ id,pealkiri,orgpealkiri,viisi_autor,sonade_autor,tolke_autor,fail,helistik,teema
 0060,Nii kui hirv,As the Deer,Martin Nystrom,,Tundmatu,nii-kui-hirv,D-duur,Püha Kuningas/Tänu ja ülistus,,
 0061,"Püha Vaim, Sind palume",,Timo Lige,,,puha-vaim-sind-palume,G-duur,Püha Vaim/Palvelaulud,https://youtu.be/jRWyAEamGtE,
 0062,Alistun Sulle,I Surrender,Matt Crocker,,Mia-Maria Lorenz,alistun-sulle,C-duur,Palvelaulud,,
+0063,Jeesus on vastus,Jesus Is the Answer,Andraé Crouch,,Tundmatu,jeesus-on-vastus,E-duur,Nimi üle kõige,https://youtu.be/KuroDl6W8-g
